@@ -3,12 +3,14 @@ package algorithm;
 import java.util.HashMap;
 
 /**
+ * 计算两数之和
+ *
  * @author zhangyanqi
  * @since 1.0 2019-04-09
  */
 public class twoSum {
 
-    //o(n)
+    //o(n^2)
     public int[] twoSum1(int[] nums, int target) {
         int l = nums.length;
         int[] res = new int[2];
