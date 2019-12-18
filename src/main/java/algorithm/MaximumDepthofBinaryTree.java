@@ -1,15 +1,17 @@
 package algorithm;
 
 /**
+ * leetcode 104
+ * https://mp.weixin.qq.com/s/g9RyWpDWfGCnvPvw4res4Q
+ *
  * @author zhangyanqi
  * @since 1.0 2019-04-15
- * https://mp.weixin.qq.com/s/g9RyWpDWfGCnvPvw4res4Q
- * 104题目
  */
 public class MaximumDepthofBinaryTree {
 
     /**
      * todo
+     *
      * @param root
      * @return
      */

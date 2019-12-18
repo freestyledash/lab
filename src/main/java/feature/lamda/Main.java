@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * just refer the doc of lamda
+ *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2019/11/22
- * @Description todo
- * important_dependency todo
  */
 public class Main {
 

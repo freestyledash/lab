@@ -1,10 +1,10 @@
 package algorithm;
 
 /**
+ * leetcode 236
+ *
  * @author zhangyanqi
  * @since 1.0 2019-04-17
- * <p>
- * leetcode 236
  */
 public class LowestCommonAncestorofaBinaryTree {
 

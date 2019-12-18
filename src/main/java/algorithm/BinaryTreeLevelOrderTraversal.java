@@ -6,12 +6,27 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author zhangyanqi
- * @since 1.0 2019-04-10
- * https://leetcode.com/problems/binary-tree-level-order-traversal/
  * 102. Binary Tree Level Order Traversal
+ * https://leetcode.com/problems/binary-tree-level-order-traversal/
+ * medium
+ *
+ * @author zhangyanqi
+ * @review 2019-12-18
+ * @since 1.0 2019-04-10
  */
 public class BinaryTreeLevelOrderTraversal {
+
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
 
     /**
      * 使用两个list交替存储每一层的节点，停止条件是需要遍历的list empty
@@ -20,7 +35,7 @@ public class BinaryTreeLevelOrderTraversal {
      * @return
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if(root == null){
+        if (root == null) {
             return new ArrayList<List<Integer>>();
         }
         List<List<Integer>> resul = new ArrayList<List<Integer>>();
@@ -31,7 +46,7 @@ public class BinaryTreeLevelOrderTraversal {
         int inUse = 1;
         while (true) {
             if (inUse == 1) {
-                if(l1.isEmpty()){
+                if (l1.isEmpty()) {
                     break;
                 }
                 l2.clear();
@@ -49,7 +64,7 @@ public class BinaryTreeLevelOrderTraversal {
                 inUse = 2;
                 continue;
             } else {
-                if(l2.isEmpty()){
+                if (l2.isEmpty()) {
                     break;
                 }
                 l1.clear();
@@ -78,23 +93,23 @@ public class BinaryTreeLevelOrderTraversal {
      */
     public List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> resul = new LinkedList<List<Integer>>();
-        if(root == null){
+        if (root == null) {
             return resul;
         }
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             ArrayList<Integer> line = new ArrayList<>();
             int size = queue.size();
-            while(size>0){
+            while (size > 0) {
                 TreeNode poll = queue.poll();
-                if(poll==null){
+                if (poll == null) {
                     continue;
                 }
-                if(poll.left!=null){
+                if (poll.left != null) {
                     queue.add(poll.left);
                 }
-                if(poll.right!=null){
+                if (poll.right != null) {
                     queue.add(poll.right);
                 }
                 line.add(poll.val);
@@ -106,9 +121,10 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
     /**
+     * best
+     * 递归的子问题：对于当前层, 遍历左子树的下一层，然后遍历右子树的下一层
+     * 递归结束条件: 当前节点是null
      *
-     * 递归的子问题：遍历当前节点, 对于当前层, 遍历左子树的下一层层,遍历右子树的下一层
-     * 递归结束条件: 当前层,当前子树节点是null
      * @param root
      * @return
      */
@@ -121,18 +137,24 @@ public class BinaryTreeLevelOrderTraversal {
         return res;
     }
 
+
     /**
-     * @param depth 二叉树的深度
+     * 前序遍历的变体
+     *
+     * @param res   存储最终结果的list,每个子list代表了一层节点
+     * @param root  根list
+     * @param depth 需要生成的内容所在深度
      */
     private void levelOrderHelper(List<List<Integer>> res, TreeNode root, int depth) {
         if (root == null) {
             return;
         }
 
+        // 当前层的第一个节点,需要new 一个list来存当前层.
         if (res.size() <= depth) {
-            // 当前层的第一个节点,需要new 一个list来存当前层.
             res.add(new LinkedList<>());
         }
+
         // depth 层,把当前节点加入
         res.get(depth).add(root.val);
         // 递归的遍历下一层.
@@ -141,14 +163,14 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+    public static void main(String[] args) {
 
-        TreeNode(int x) {
-            val = x;
-        }
+
     }
+
+    /*
+    todo 树的遍历
+     */
+
 
 }
