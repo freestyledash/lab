@@ -22,24 +22,39 @@ public class LongestPalindromicSubstring {
         String max = "";
         /*
             结算一共有对少个潜在的分界点
-            eg: * * * *   4 -1 + 4 - 2 = 5 个潜在分界
-                从1开始
-                基数分界为一个数
-                偶数分界为一个间隙
+            eg:
+                b   a   b   a  d
+                  1 2 3 4 5 6 7
+                0   1   2   3  4
          */
         int total = chars.length * 2 - 3;
-        for (int i = 1; i < total; i++) {
-            int leftIndex = i / 2;
-            int rightIndex = leftIndex + 1;
-            while (chars[rightIndex] == chars[leftIndex]) {
+        for (int i = 1; i <= total; i++) {
+            //get left index and right index
+            int leftIndex;
+            int rightIndex;
+            if (i % 2 != 0) {
+                leftIndex = i / 2;
+                rightIndex = leftIndex + 1;
+            } else {
+                leftIndex = i / 2 - 1;
+                rightIndex = leftIndex + 2;
+            }
+            while (true) {
+                if (chars[rightIndex] != chars[leftIndex]) {
+                    if (rightIndex - leftIndex != 1) {
+                        leftIndex++;
+                    }
+                    break;
+                }
                 if (leftIndex == 0 || rightIndex == chars.length - 1) {
+                    rightIndex++;
                     break;
                 }
                 rightIndex++;
                 leftIndex--;
             }
-            //compare and save max;
-            String current = s.substring(leftIndex, rightIndex + 1);
+
+            String current = s.substring(leftIndex, rightIndex);
             if (current.length() > max.length()) {
                 max = current;
             }
@@ -48,7 +63,6 @@ public class LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        //System.out.println(3 / 2);
 
         String a = "aba";
         String b = "a";
@@ -56,13 +70,14 @@ public class LongestPalindromicSubstring {
         String d = "aaaa";
         String e = "";
         String f = "babad";
-
+        String g = "ac";
+        String h = "bb";
         LongestPalindromicSubstring longestPalindromicSubstring = new LongestPalindromicSubstring();
         //String result = longestPalindromicSubstring.longestPalindrome(a);
         //String result = longestPalindromicSubstring.longestPalindrome(b);
         //String result = longestPalindromicSubstring.longestPalindrome(c);
         //String result = longestPalindromicSubstring.longestPalindrome(d);
-        String result = longestPalindromicSubstring.longestPalindrome(f);
+        String result = longestPalindromicSubstring.longestPalindrome(h);
 
         System.out.println(result);
 
