@@ -3,8 +3,11 @@ package algorithm;
 import java.util.HashMap;
 
 /**
- * leetcode 1
+ * leetcode
+ * 1. tow Sum
+ * https://leetcode.com/problems/two-sum/
  * easy
+ *
  * 计算两数之和
  * input array,target
  * output position
