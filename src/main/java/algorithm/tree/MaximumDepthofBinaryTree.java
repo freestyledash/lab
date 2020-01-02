@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.tree;
 
 /**
  * leetcode 104

@@ -1,6 +1,7 @@
 package algorithm.dp;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2019/12/30
  */
-public class MergeCommon {
+public class MergeCommonElement {
 
     public void merge(List<String> strings) {
         //代表index前面，有几个一样的
@@ -32,7 +33,15 @@ public class MergeCommon {
     }
 
     public static void main(String[] args) {
-        
+
+        List<Integer> integers = Arrays.asList(1, 2, 3);
+        integers.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
+        System.out.println(integers);
     }
 
 }
