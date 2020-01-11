@@ -2,6 +2,8 @@ package algorithm.linkedList;
 
 import java.util.Stack;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * leetcode
  * 206. Reverse Linked List
@@ -30,7 +32,8 @@ public class ReverseLinkedList {
         ListNode(int x) { val = x; }
     }
 
-    public ListNode reverseList(ListNode head) {
+    //none-recursive
+    public ListNode reverseListNoneRecursive(ListNode head) {
         if (head == null) {
             return null;
         }
@@ -56,7 +59,58 @@ public class ReverseLinkedList {
         return firstNode;
     }
 
-    public static void main(String[] args) {
+    /**
+     * recursive reverse linkedNode
+     * thought:
+     * 当前节点成为已经翻转的后续节点的tail
+     *
+     * @param head 头结点
+     * @return
+     */
+    static ListNode last = null;
+    static ListNode first = null;
+
+    public ListNode reverseListRecursive(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        if (first == null) {
+            first = head;
+        }
+        if (head.next == null) {
+            last = head;
+            return head;
+        }
+        ListNode listNode = reverseListRecursive(head.next);
+        listNode.next = head;
+        //防止成环
+        head.next = null;
+        if (head == first) {
+            return last;
+        } else {
+            return head;
+        }
+    }
+
+    @Test
+    public void testReverseListRecursive() {
+        ListNode listNode0 = new ListNode(1);
+        ListNode listNode1 = new ListNode(2);
+        //ListNode listNode2 = new ListNode(2);
+        listNode0.next = listNode1;
+        //listNode1.next = listNode2;
+
+        ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
+        ListNode listNode = reverseLinkedList.reverseListRecursive(listNode0);
+        while (listNode != null) {
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
+
+    }
+
+    @Test
+    public void testReverseListNoneRecursive() {
         ListNode listNode0 = new ListNode(0);
         ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);
@@ -64,7 +118,7 @@ public class ReverseLinkedList {
         listNode1.next = listNode2;
 
         ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        ListNode listNode = reverseLinkedList.reverseList(listNode0);
+        ListNode listNode = reverseLinkedList.reverseListNoneRecursive(listNode0);
         while (listNode != null) {
             System.out.println(listNode.val);
             listNode = listNode.next;
