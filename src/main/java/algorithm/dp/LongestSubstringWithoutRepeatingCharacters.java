@@ -1,12 +1,12 @@
-package algorithm;
-
+package algorithm.dp;
 
 /**
- * @author zhangyanqi
- * @since 1.0 2019-04-17
  * leetcode 3
  * dp[i] = dp[i-1] +1  OR  old - duplicateSequence + 1
  * longest = max(dp)
+ *
+ * @author zhangyanqi
+ * @since 1.0 2019-04-17
  */
 public class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
@@ -38,10 +38,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-        LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
+        LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters
+            = new LongestSubstringWithoutRepeatingCharacters();
         int aaaaa = longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring("dvdf");
         System.out.println(aaaaa);
     }
-
 
 }

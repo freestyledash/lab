@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.tree;
 
 import javax.xml.soap.Node;
 import java.util.ArrayList;

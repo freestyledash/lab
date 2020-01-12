@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.linkedList;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
  * LeetCode 2
  * AddTowNumbers
  * medium
- * <p>
+ *
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807
@@ -67,7 +67,6 @@ public class AddTwoNumbers {
             val = x;
         }
 
-
         public static ListNode build(List<Integer> integers, int position) {
             if (integers == null && integers.isEmpty()) {
                 throw new RuntimeException("reject");
@@ -90,7 +89,6 @@ public class AddTwoNumbers {
             return listNode;
         }
 
-
         @Override
         public String toString() {
             StringBuilder stringBuilder = new StringBuilder();
@@ -101,11 +99,9 @@ public class AddTwoNumbers {
         }
     }
 
-
     public static void main(String[] args) {
-        ListNode build = ListNode.build(Arrays.asList(1,2,3,4,5),0);
+        ListNode build = ListNode.build(Arrays.asList(1, 2, 3, 4, 5), 0);
         System.out.println(build);
-
 
     }
 
