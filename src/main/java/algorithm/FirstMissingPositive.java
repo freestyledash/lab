@@ -19,6 +19,7 @@ public class FirstMissingPositive {
                 if (temp == current) {
                     continue;
                 }
+                //交换 key
                 nums[current - 1] = current;
                 nums[i] = temp;
                 i--;
