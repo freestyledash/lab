@@ -30,34 +30,40 @@ public class Sort {
         }
     }
 
+    /**
+     * 冒泡排序
+     *
+     * @param array
+     */
     void bubbleSort(int[] array) {
-        int n = array.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
+        int length = array.length;
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
-                    // swap arr[j+1] and arr[i]
-                    /**
-                     * 这里要使用一个中间变量 有性能消耗
-                     */
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+                    //此处每次会多一个temp
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
                 }
             }
         }
     }
 
+    /**
+     * 插入排序
+     *
+     * @param array
+     */
     void insertionSort(int[] array) {
-        int length = array.length;
-        for (int i = 0; i < length; i++) {
-            int k = array[i];
+        for (int i = 1; i < array.length; i++) {
+            int key = array[i];
             int j = i - 1;
-            while (j >= 0 && array[j] > k) {
-                //往前移动一位
+            while (j >= 0 && array[j] > key) {
                 array[j + 1] = array[j];
-                j = j - 1;
+                j--;
             }
-            array[j + 1] = k;
+            j++;
+            array[j] = key;
         }
     }
 
