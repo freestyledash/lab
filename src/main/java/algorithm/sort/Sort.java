@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * this is very really extremely vital critical important
  * pull out all step to remember them!
  *
- * small --- big
+ * small ---> big
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/14
@@ -74,11 +74,8 @@ public class Sort {
      */
     void insertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
-            //需要进行比较的值
             int key = array[i];
-            //开始进行比较的起点
             int j = i - 1;
-            //需要比较的值之前的都是经过排序的，依次比较，如果之前的大，就往前走一步
             while (j >= 0 && array[j] > key) {
                 array[j + 1] = array[j];
                 j--;
@@ -104,23 +101,16 @@ public class Sort {
      * @param array
      */
     void selectionSort(int[] array) {
-        int n = array.length;
-
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n - 1; i++) {
-            // Find the minimum element in unsorted array
-            int minIdx = i;
-            for (int j = i + 1; j < n; j++) {
-                if (array[j] < array[minIdx]) {
-                    minIdx = j;
+        for (int i = 0; i < array.length; i++) {
+            int minIndex = i;
+            for (int j = i; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
                 }
             }
-
-            // Swap the found minimum element with the first
-            // element
-            int temp = array[minIdx];
-            array[minIdx] = array[i];
-            array[i] = temp;
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
         }
     }
 
@@ -141,8 +131,8 @@ public class Sort {
      * 写出递归公式，终止条件
      *
      * @param array
-     * @param low
-     * @param high
+     * @param low   index of low
+     * @param high  index of high
      */
     void quickSort(int array[], int low, int high) {
         if (low < high) {
@@ -157,34 +147,60 @@ public class Sort {
         }
     }
 
-    int partition(int arr[], int low, int high) {
-        int pivot = arr[high];
-        // index of smaller element
-        int i = (low - 1);
-        for (int j = low; j < high; j++) {
-            // If current element is smaller than the pivot
-            if (arr[j] < pivot) {
-                i++;
+    int partition(int array[], int low, int high) {
+        //int pivot = array[high];
+        //// 记录下接下来要被替换的位置
+        //// index of smaller element
+        //int i = (low - 1);
+        ////?
+        //for (int j = low; j < high; j++) {
+        //    // If current element is smaller than the pivot
+        //    if (array[j] < pivot) {
+        //        i++;
+        //
+        //        // swap arr[i] and arr[j]
+        //        int temp = array[i];
+        //        array[i] = array[j];
+        //        array[j] = temp;
+        //    }
+        //}
+        //// 将pivot从末尾搬到中间的位置
+        //// swap arr[i+1] and arr[high] (or pivot)
+        //int temp = array[i + 1];
+        //array[i + 1] = array[high];
+        //array[high] = temp;
+        //
+        //return i + 1;
 
-                // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+        int pivot = array[high];
+        int i = low - 1;
+        for (int j = 0; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                int temp = array[j];
+                array[j] = array[i];
+                array[i] = temp;
             }
         }
-
-        // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-
+        int temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
         return i + 1;
     }
-
     //quick sort end
+
+    @Test
+    public void testQuickSort() {
+        quickSort(this.toSort, 0, toSort.length - 1);
+    }
 
     //merge sort begin
     void mergeSort(int[] arrays) {
+
+    }
+
+    @Test
+    public void testMergeSort(int[] arrays) {
 
     }
 
@@ -192,8 +208,18 @@ public class Sort {
         return null;
     }
 
+    @Test
+    void testHeapSort(int[] arrays) {
+
+    }
+
     int[] bucketSort(int[] array) {
         return null;
+    }
+
+    @Test
+    void testBucketSort(int[] arrays) {
+
     }
 
 }
