@@ -1,7 +1,9 @@
 package algorithm.dp;
 
 /**
- * leetcode 3
+ * leetCode 3
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ *
  * dp[i] = dp[i-1] +1  OR  old - duplicateSequence + 1
  * longest = max(dp)
  *
