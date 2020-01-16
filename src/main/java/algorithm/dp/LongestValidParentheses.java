@@ -28,19 +28,19 @@ public class LongestValidParentheses {
         }
         //record unmatched left parenthesis
         int unmatchedLeftParenthesis = 0;
-        //dp[i] 表示以S[i - 1]作为结尾的最长合法字符串的长度
-        int[] dp = new int[s.length() + 1];
+        //dp[i] 表示以S[i]作为结尾的最长合法字符串的长度
+        int[] dp = new int[s.length()];
         //init
-        dp[0] = dp[1] = 0;
+        dp[0] = 0;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == '(') {
                 unmatchedLeftParenthesis++;
             } else if (unmatchedLeftParenthesis > 0 && i > 0) {
                 unmatchedLeftParenthesis--;
-                dp[i + 1] = dp[i] + 2;
+                dp[i] = dp[i - 1] + 2;
                 //此时dp[i+1]不一定是所有的，需要看看前面的是否有 （关键）
-                dp[i + 1] += dp[i + 1 - dp[i + 1]];
+                dp[i] += dp[i - 1 - dp[i - 1]];
             }
         }
         //get max
