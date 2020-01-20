@@ -171,13 +171,13 @@ public class BinarySearch {
     }
 
     /**
-     * 扎到第一个小于某个值的
+     * 找到第一个小于某个值的
      *
      * @param target
      * @param arr
      * @return
      */
-    public int findFirstLessEqual(int target, int[] arr) {
+    public int findLastLessEqual(int target, int[] arr) {
         int low = 0;
         int high = arr.length - 1;
         while (low <= high) {
@@ -197,7 +197,7 @@ public class BinarySearch {
 
     @Test
     public void testFindFirstLessEqual() {
-        result = this.findFirstLessEqual(8, this.arr);
+        result = this.findLastLessEqual(8, this.arr);
     }
 
 }
