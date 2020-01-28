@@ -1,4 +1,4 @@
-package concurrency;
+package feature.concurrency;
 
 /**
  * leetcode 1114. Print in Order

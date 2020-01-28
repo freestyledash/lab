@@ -12,6 +12,8 @@ package algorithm.dp;
  *
  * 动态规划
  * http://cs-cjl.com/2016/09_24_leetcode_32_longest_valid_parentheses
+ * https://www.cnblogs.com/f91og/p/9411135.html
+ * https://zhuanlan.zhihu.com/p/89711292
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2019/12/28
