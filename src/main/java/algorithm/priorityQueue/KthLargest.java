@@ -27,10 +27,6 @@ public class KthLargest {
     int k = 0;
 
 
-    public KthLargest() {
-
-    }
-
     public KthLargest(int k, int[] nums) {
         this.k = k;
         this.priorityQueue = new PriorityQueue<>(k);

@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 /**
  * 121. Best Time to Buy and Sell Stock
@@ -18,7 +18,6 @@ public class BestTimetoBuyandSellStock {
     遍历数组
     记录最小的价格，记录最大的利润
      */
-
     public int maxProfit(int[] prices) {
         int length = prices.length;
         if (length == 0) {

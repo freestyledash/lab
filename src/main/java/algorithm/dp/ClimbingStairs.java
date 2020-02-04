@@ -5,7 +5,9 @@ package algorithm.dp;
  * 70. Climbing Stairs
  * https://leetcode.com/problems/climbing-stairs/
  * easy
- *
+ * 爬梯子
+ * 思路：
+ * 动态规划
  * dp[i]=dp[i−1]+dp[i−2]
  *
  * @author xiaoqi.zyq@alibaba-inc.com

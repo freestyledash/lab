@@ -1,11 +1,10 @@
 package algorithm.dp;
 
 /**
- * leetcode
  * 53. Maximum Subarray
  * https://leetcode.com/problems/maximum-subarray/
  * easy
- * 最长子序列
+ * 最大和子序列
  *
  * 动态规划
  *

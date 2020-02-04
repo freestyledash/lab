@@ -6,7 +6,8 @@ import java.util.Stack;
  * 876.Middle of the Linked List
  * https://leetcode.com/problems/middle-of-the-linked-list/
  * easy
- *
+ * <p>
+ * 链表的中间节点
  * 思路：
  * use stack
  *
@@ -19,7 +20,9 @@ public class MiddleOfTheLinkedList {
         int val;
         ListNode next;
 
-        ListNode(int x) { val = x; }
+        ListNode(int x) {
+            val = x;
+        }
     }
 
     public ListNode middleNode(ListNode head) {
