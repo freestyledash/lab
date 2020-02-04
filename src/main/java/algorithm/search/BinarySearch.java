@@ -5,12 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
- * 二分查找
+ * 普通二分查找
  * 查找第一个等于
  * 查找最后一个等于
- * 查找第一个小于
- * 查找第一个大于
+ * 查找最后一个小于等于
+ * 查找第一个大于等于
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/16

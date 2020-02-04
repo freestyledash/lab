@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.hash;
 
 import java.util.HashMap;
 
@@ -7,7 +7,7 @@ import java.util.HashMap;
  * 1. tow Sum
  * https://leetcode.com/problems/two-sum/
  * easy
- *
+ * <p>
  * 计算两数之和
  * input array,target
  * output position
@@ -15,7 +15,7 @@ import java.util.HashMap;
  * @author zhangyanqi
  * @since 1.0 2019-04-09
  */
-public class twoSum {
+public class TwoSum {
 
     //o(n^2)
     public int[] twoSum1(int[] nums, int target) {
@@ -35,7 +35,7 @@ public class twoSum {
         return res;
     }
 
-    //o(n)
+    //o(n) use hashmap
     public int[] twoSum2(int[] nums, int target) {
         int[] res = new int[2];
         HashMap<Integer, Integer> integerIntegerHashMap = new HashMap<>();

@@ -1,9 +1,7 @@
-package algorithm.linkedList;
+package algorithm.list.linkedList;
 
-import java.util.List;
 import java.util.Stack;
 
-import algorithm.linkedList.ReverseLinkedList.ListNode;
 import org.junit.jupiter.api.Test;
 
 /**

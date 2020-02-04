@@ -6,16 +6,16 @@ package algorithm;
  * easy
  *
  * @author zhangyanqi
- * @since 1.0 2019-04-10
  * @review 2019-12-18
+ * @since 1.0 2019-04-10
  */
 public class BestTimetoBuyandSellStock {
 
 
     /*
-    思路：每个价格减去之前最小的价格，找到这个最大的差值
-
-    遍历数组，保留状态
+    思路：
+    每个价格减去之前最小的价格，找到这个最大的差值
+    遍历数组
     记录最小的价格，记录最大的利润
      */
 
@@ -24,7 +24,9 @@ public class BestTimetoBuyandSellStock {
         if (length == 0) {
             return 0;
         }
+        //最大利润
         int currentBestProfit = 0;
+        //最小价格
         int currentSmallest = prices[0];
         for (int i = 1; i < length; i++) {
             int currentPrice = prices[i];

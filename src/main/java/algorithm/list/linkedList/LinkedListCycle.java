@@ -1,4 +1,4 @@
-package algorithm.linkedList;
+package algorithm.list.linkedList;
 
 import org.junit.jupiter.api.Test;
 

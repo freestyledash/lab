@@ -5,7 +5,6 @@ import java.util.Stack;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
  * 844. Backspace String Compare
  * https://leetcode.com/problems/backspace-string-compare/
  *

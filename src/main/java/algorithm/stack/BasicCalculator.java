@@ -7,7 +7,6 @@ import java.util.Stack;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
  * 224. Basic Calculator
  * https://leetcode.com/problems/basic-calculator/
  * hard

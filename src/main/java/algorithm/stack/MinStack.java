@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.Stack;
 
 /**
- * Description
  * 155. Min Stack
  * https://leetcode.com/problems/min-stack/
  * easy

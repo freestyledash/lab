@@ -6,6 +6,7 @@ package algorithm;
  * Best Time to Buy and Sell Stock II
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
  * easy
+ *
  * <p>
  * Say you have an array for which the ith element is the price of a given stock on day i.
  * Design an algorithm to find the maximum profit.
@@ -46,10 +47,6 @@ public class BestTimetoBuyandSellStockII {
         }
         return finalProfit;
     }
-
-    public static void main(String[] args) {
-
-
-    }
+    
 
 }
