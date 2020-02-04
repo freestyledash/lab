@@ -5,6 +5,7 @@ package algorithm.dp;
  * 53. Maximum Subarray
  * https://leetcode.com/problems/maximum-subarray/
  * easy
+ * 最长子序列
  *
  * 动态规划
  *

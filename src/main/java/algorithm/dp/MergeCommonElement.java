@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Description
  * 合并相同的内容
  *
  * @author xiaoqi.zyq@alibaba-inc.com

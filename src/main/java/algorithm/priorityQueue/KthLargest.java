@@ -9,7 +9,8 @@ import java.util.PriorityQueue;
  * https://leetcode.com/problems/kth-largest-element-in-a-stream/
  * Design a class to find the kth largest element in a stream. Note that it is the kth largest element
  * in the sorted order, not the kth distinct element.
- *
+ * 第K个大的数据
+ * <p>
  * 思路：
  * 使用堆
  *
@@ -56,7 +57,7 @@ public class KthLargest {
     }
 
     public static void main(String[] args) {
-        KthLargest kthLargest = new KthLargest(3, new int[]{1,2,3});
+        KthLargest kthLargest = new KthLargest(3, new int[]{1, 2, 3});
         int add = kthLargest.add(4);
         System.out.println(add);
     }

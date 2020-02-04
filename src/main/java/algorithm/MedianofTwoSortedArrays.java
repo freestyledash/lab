@@ -1,9 +1,10 @@
 package algorithm;
 
 /**
+ * leetCode 4
+ *
  * @author zhangyanqi
  * @since 1.0 2019-04-17
- * leetCode 4
  */
 public class MedianofTwoSortedArrays {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
