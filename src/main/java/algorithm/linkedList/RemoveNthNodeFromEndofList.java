@@ -7,11 +7,13 @@ import algorithm.linkedList.ReverseLinkedList.ListNode;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
  * 19. Remove Nth Node From End of List
  * https://leetcode.com/problems/remove-nth-node-from-end-of-list/
  * meduim
  * 移除末尾第n个元素
+ * 思路：
+ * use stack
+ *
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/11

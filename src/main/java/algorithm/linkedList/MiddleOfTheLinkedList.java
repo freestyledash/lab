@@ -3,10 +3,12 @@ package algorithm.linkedList;
 import java.util.Stack;
 
 /**
- * Description
- * 876 Middle of the Linked List
+ * 876.Middle of the Linked List
  * https://leetcode.com/problems/middle-of-the-linked-list/
  * easy
+ *
+ * 思路：
+ * use stack
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/11

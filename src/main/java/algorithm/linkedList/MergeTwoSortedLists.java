@@ -3,10 +3,10 @@ package algorithm.linkedList;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
  * 21. merge-two-sorted-lists
  * https://leetcode.com/problems/merge-two-sorted-lists/
  * easy
+ *
  * 合并两个有序链表
  *
  * @author xiaoqi.zyq@alibaba-inc.com

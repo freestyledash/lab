@@ -3,11 +3,12 @@ package algorithm.linkedList;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
  * 141. Linked List Cycle
  * https://leetcode.com/problems/linked-list-cycle/
- * 检测环
- * 思路：两个指针，一个快，一个慢
+ * easy
+ *
+ * 思路：
+ * 两个指针，一个快，一个慢
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/10

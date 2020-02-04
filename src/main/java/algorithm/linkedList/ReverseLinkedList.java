@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
  * easy
  * 翻转链表
  *
+ * 思路：使用stack
+ *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/09
  */

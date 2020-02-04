@@ -11,7 +11,8 @@ import java.util.List;
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2019/12/30
  */
-public class MergeCommonElement {
+public class
+MergeCommonElement {
 
     public void merge(List<String> strings) {
         //代表index前面，有几个一样的

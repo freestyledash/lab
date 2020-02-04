@@ -4,13 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * LeetCode 2
- * AddTowNumbers
+ * 2.AddTowNumbers
  * medium
- *
+ * <p>
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807
+ * <p>
+ * 思路：
+ * 从地位加到高位，考虑进位的因素
  *
  * @author zhangyanqi
  * @since 1.0 2019-04-09
