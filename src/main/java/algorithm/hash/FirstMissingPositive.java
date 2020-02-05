@@ -1,21 +1,27 @@
 package algorithm.hash;
 
 /**
- * 41
+ * 41. First Missing Positive
+ * https://leetcode.com/problems/first-missing-positive/
+ * hard
+ * 消失的第一个正整数
  *
- * todo
+ *
  * @author zhangyanqi
  * @since 1.0 2019-04-09
  */
 public class FirstMissingPositive {
 
     public int firstMissingPositive(int[] nums) {
+        //特殊情况判断
         int length = nums.length;
         if (length == 0) {
             return 1;
         }
+
         for (int i = 0; i < length; i++) {
             int current = nums[i];
+            //把每个数 n 和数组的 n-1 的位置上的数进行交换
             if (current <= length && current > 0 && current != i + 1) {
                 int temp = nums[current - 1];
                 if (temp == current) {
@@ -27,6 +33,7 @@ public class FirstMissingPositive {
                 i--;
             }
         }
+        //遍历检查
         for (int i = 0; i < length; i++) {
             int current = nums[i];
             if (current != i + 1) {
