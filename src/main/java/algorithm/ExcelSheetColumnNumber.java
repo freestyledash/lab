@@ -2,12 +2,12 @@ package algorithm;
 
 /**
  * leetcode 171
- *
+ * todo
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2019/08/18
  */
-public class ExcelSheetColumnNumber171 {
+public class ExcelSheetColumnNumber {
 
     public int titleToNumber(String s) {
         int length = s.length();
@@ -85,7 +85,7 @@ public class ExcelSheetColumnNumber171 {
     }
 
     public static void main(String[] args) {
-        ExcelSheetColumnNumber171 excelSheetColumnNumber171 = new ExcelSheetColumnNumber171();
+        ExcelSheetColumnNumber excelSheetColumnNumber171 = new ExcelSheetColumnNumber();
         int a = excelSheetColumnNumber171.titleToNumber("AAA");
         System.out.println(a);
     }
