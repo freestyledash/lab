@@ -8,9 +8,9 @@ import java.util.List;
  * https://leetcode.com/problems/validate-binary-search-tree/
  * medium
  * <p>
- * 判断一个数是否为二叉树
+ * 判断一个数是否为搜索二叉树
  * 思路：
- * 1.中序遍历有序升序，不必遍历完所有东西,使用
+ * 1.中序遍历有序升序，不必遍历完所有东西
  * 2.递归判断，每次传入上界和下界
  *
  * @author zhangyanqi
@@ -18,17 +18,18 @@ import java.util.List;
  */
 
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
 public class ValidateBinarySearchTree {
+
+
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
 
 
     //方法1 遍历，但是不遍历完
@@ -62,7 +63,7 @@ public class ValidateBinarySearchTree {
     }
 
 
-    //最快
+    //最快 best 类似于先序遍历
     public boolean isValidBST2(TreeNode root) {
         return judge(root, null, null);
     }
