@@ -1,8 +1,9 @@
 package algorithm;
 
 /**
- * leetcode 171
- * todo
+ * 171. Excel Sheet Column Number
+ * https://leetcode.com/problems/excel-sheet-column-number/
+ * 参考10进制的原理
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2019/08/18

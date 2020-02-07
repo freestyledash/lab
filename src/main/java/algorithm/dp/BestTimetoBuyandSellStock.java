@@ -1,4 +1,4 @@
-package algorithm.list;
+package algorithm.dp;
 
 /**
  * 121. Best Time to Buy and Sell Stock

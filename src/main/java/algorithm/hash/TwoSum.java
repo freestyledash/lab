@@ -12,6 +12,8 @@ import java.util.HashMap;
  * input array,target
  * output position
  *
+ * ps：3sum 4sum 的思路完全不一样
+ *
  * @author zhangyanqi
  * @since 1.0 2019-04-09
  */

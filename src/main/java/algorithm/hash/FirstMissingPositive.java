@@ -5,7 +5,9 @@ package algorithm.hash;
  * https://leetcode.com/problems/first-missing-positive/
  * hard
  * 消失的第一个正整数
- *
+ * <p>
+ * 思路：
+ * 将值和下标关联起来，将i放在i-1的位置上，原来那个位置上的数到之前i的位置上，再考察当前的值
  *
  * @author zhangyanqi
  * @since 1.0 2019-04-09
@@ -30,6 +32,7 @@ public class FirstMissingPositive {
                 //交换 key
                 nums[current - 1] = current;
                 nums[i] = temp;
+                //重新考量这个数
                 i--;
             }
         }

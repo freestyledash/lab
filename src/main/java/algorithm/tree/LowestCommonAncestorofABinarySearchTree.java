@@ -5,7 +5,6 @@ package algorithm.tree;
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  * <p>
  * 最近的公共树
- * todo
  *
  * @author zhangyanqi
  * @since 1.0 2020-02-06

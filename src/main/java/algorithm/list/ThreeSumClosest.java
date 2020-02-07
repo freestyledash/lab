@@ -51,11 +51,6 @@ public class ThreeSumClosest {
         return closestSum;
     }
 
-
-    /*
-    [-1,2,1,-4]
-    1
-     */
     public static void main(String[] args) {
         int[] ints = {0, 2, 1, -3};
         ThreeSumClosest threeSumClosest = new ThreeSumClosest();
