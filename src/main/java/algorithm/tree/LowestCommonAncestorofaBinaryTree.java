@@ -49,7 +49,6 @@ public class LowestCommonAncestorofaBinaryTree {
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-
         //遍历完一个小树之后，回到这里
         //熟悉下先序遍历的顺序特点
         //得到root节点的查找情况

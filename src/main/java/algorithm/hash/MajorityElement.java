@@ -18,6 +18,12 @@ import java.util.Map;
  */
 public class MajorityElement {
 
+    /**
+     * 使用hashmap的方式
+     *
+     * @param nums
+     * @return
+     */
     public int majorityElement(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
