@@ -1,4 +1,4 @@
-package algorithm.search.DFS;
+package algorithm.tree;
 
 
 import java.util.*;

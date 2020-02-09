@@ -16,10 +16,7 @@ import java.util.List;
  * @author zhangyanqi
  * @since 1.0 2020-02-06
  */
-
-
 public class ValidateBinarySearchTree {
-
 
     class TreeNode {
         int val;
@@ -47,10 +44,18 @@ public class ValidateBinarySearchTree {
         return true;
     }
 
+    /**
+     * 二叉搜索树中续遍历是有序数组
+     *
+     * @param root
+     * @param list
+     * @return
+     */
     public boolean travers(TreeNode root, List<Integer> list) {
         if (root.left != null) {
             travers(root.left, list);
         }
+        //当前值比
         if (list.size() == 0 || root.val > list.get(list.size() - 1)) {
             list.add(root.val);
         } else {
@@ -63,11 +68,17 @@ public class ValidateBinarySearchTree {
     }
 
 
-    //最快 best 类似于先序遍历
+    //方法2 最快 best 类似于先序遍历
     public boolean isValidBST2(TreeNode root) {
         return judge(root, null, null);
     }
 
+    /**
+     * @param node 需要判断的节点
+     * @param min  合理的最小值
+     * @param max  合理的最大值
+     * @return 是否合理
+     */
     public boolean judge(TreeNode node, Integer min, Integer max) {
         if (node == null) {
             return true;

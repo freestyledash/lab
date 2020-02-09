@@ -1,6 +1,8 @@
 package algorithm.tree;
 
 import javax.swing.tree.TreeNode;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 100. Same Tree
@@ -28,7 +30,8 @@ public class SameTree {
         }
     }
 
-    public boolean isSameTree(TreeNode p, TreeNode q) {
+    //递归方案
+    public boolean isSameTreeDFS(TreeNode p, TreeNode q) {
         if (p == q && p == null) {
             return true;
         }
@@ -42,8 +45,9 @@ public class SameTree {
             return false;
         }
 
-        boolean l = isSameTree(p.left, q.left);
-        boolean r = isSameTree(p.right, q.right);
+        boolean l = isSameTreeDFS(p.left, q.left);
+        boolean r = isSameTreeDFS(p.right, q.right);
         return l && r;
     }
+    
 }
