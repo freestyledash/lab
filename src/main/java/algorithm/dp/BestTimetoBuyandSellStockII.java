@@ -1,6 +1,9 @@
 package algorithm.dp;
 
 
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
  * LeetCode 122
  * Best Time to Buy and Sell Stock II
@@ -18,6 +21,9 @@ package algorithm.dp;
  * Explanation:
  * Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
  * Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+ * <p>
+ * 思路：
+ * 第二天只要比第一天贵，就赚差价
  *
  * @author zhangyanqi
  * @review 2019-12-18
@@ -32,21 +38,22 @@ public class BestTimetoBuyandSellStockII {
      */
 
     public int maxProfit(int[] prices) {
-        int length = prices.length;
-        if (length < 1) {
+        if (prices == null || prices.length <= 1) {
             return 0;
         }
-        int finalProfit = 0;
-        int smallestPrice = prices[0];
-        for (int i = 1; i < length; i++) {
-            int currentPrice = prices[i];
-            if (currentPrice > smallestPrice) {
-                finalProfit += (currentPrice - smallestPrice);
+        int total = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                total += prices[i] - prices[i - 1];
             }
-            smallestPrice = currentPrice;
         }
-        return finalProfit;
+        return total;
     }
-    
 
+
+    public static void main(String[] args) {
+        BestTimetoBuyandSellStockII bestTimetoBuyandSellStockII = new BestTimetoBuyandSellStockII();
+        int maxProfit = bestTimetoBuyandSellStockII.maxProfit(new int[]{7, 1, 5, 3, 6, 4});
+        System.out.println(maxProfit);
+    }
 }

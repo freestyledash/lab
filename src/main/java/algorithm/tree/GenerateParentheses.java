@@ -26,7 +26,7 @@ public class GenerateParentheses {
     /**
      * 思路：
      * 递归：
-     * 条件：数量到了指定数量
+     * 终止条件：数量到了指定数量
      * 递归公式：f(n) =  f(n -1)+ ( or ) n为string的长度
      * 如果n为目标长度，则加入到结果集合中
      *

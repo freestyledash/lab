@@ -19,30 +19,26 @@ public class BestTimetoBuyandSellStock {
     记录最小的价格，记录最大的利润
      */
     public int maxProfit(int[] prices) {
-        int length = prices.length;
-        if (length == 0) {
+        if (prices == null || prices.length <= 1) {
             return 0;
         }
-        //最大利润
-        int currentBestProfit = 0;
+        int result = 0;
         //最小价格
-        int currentSmallest = prices[0];
-        for (int i = 1; i < length; i++) {
-            int currentPrice = prices[i];
-            if (currentPrice > currentSmallest) {
-                int currentProfit = currentPrice - currentSmallest;
-                if (currentProfit > currentBestProfit) {
-                    currentBestProfit = currentProfit;
-                }
+        int min = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < min) {
+                min = prices[i];
             } else {
-                currentSmallest = currentPrice;
+                result = Math.max(prices[i] - min, result);
             }
         }
-        return currentBestProfit;
+        return result;
     }
 
     public static void main(String[] args) {
-
+        BestTimetoBuyandSellStock bestTimetoBuyandSellStock = new BestTimetoBuyandSellStock();
+        int maxProfit = bestTimetoBuyandSellStock.maxProfit(new int[]{1, 2, 3, 4});
+        System.out.println(maxProfit);
 
     }
 

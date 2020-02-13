@@ -100,31 +100,34 @@ public class CoinChange {
      * @return
      */
     public int coinChangeDP(int[] coins, int amount) {
-        int dp[] = new int[amount+1];
-        dp[0] = 1;
-
-        for (int j = 0; j < coins.length; j++) {
-            for (int i = coins[j]; i <= amount; i++) {
-                int prev = dp[i-coins[j]];
-                if (prev > 0) {
-                    if (dp[i] == 0) dp[i] = prev+1;
-                    else dp[i] = Math.min(dp[i], prev+1);
+        if (amount == 0) {
+            return 0;
+        }
+        if (coins == null) {
+            return -1;
+        }
+        int[] dp = new int[amount + 1];
+        dp[0] = 0;
+        for (int coin : coins) {
+            for (int i = coin; i <= amount; i++) {
+                if (dp[i - coin] == 0 || i == coin) {
+                    dp[i] = 0;
+                } else {
+                    if (dp[i] == 0) {
+                        dp[i] = dp[i - coin] + 1;
+                    } else {
+                        dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                    }
                 }
             }
         }
-
-        return dp[amount]-1;
+        return dp[amount] == 0 ? -1 : dp[amount];
     }
 
     public static void main(String[] args) {
         CoinChange coinChange = new CoinChange();
         int[] coins = {1, 2, 5};
         int amount = 11;
-//        int i = coinChange.coinChange(coins, amount);
-//        int i = coinChange.coinChange(new int[]{281, 20, 251, 251}, 7323);
-//        int i = coinChange.coinChange(new int[]{186, 419, 83, 408}, 6249);
-//        System.out.println(i);
-
         int i1 = coinChange.coinChangeDP(coins, amount);
         System.out.println(i1);
 

@@ -9,6 +9,8 @@ package algorithm.recusive;
  * 思路：
  * 1.暴力枚举 o(n)
  * 2.divide & recursive
+ * <p>
+ * x^2n = (x^2)^n 乘法的次数降低一半
  *
  * @author zhangyanqi
  * @since 1.0 2020-02-07
@@ -87,7 +89,6 @@ public class Pow {
                 pow *= x;
             }
             x *= x;
-            //n = n/2
             n >>= 1;
         }
         return pow;

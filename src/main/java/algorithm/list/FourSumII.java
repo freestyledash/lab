@@ -44,7 +44,7 @@ public class FourSumII {
     }
 
 
-    //方法2 使用Map
+    //方法2 使用Map 时间复杂度 o(n2)
     public int fourSumCount2(int[] A, int[] B, int[] C, int[] D) {
         int result = 0;
 

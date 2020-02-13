@@ -5,7 +5,7 @@ package algorithm;
  * Medium
  * <p>
  * 思路：
- * 两个指针，往中间逼近
+ * 两个指针，矮的那个往中间逼近
  * https://zhuanlan.zhihu.com/p/33737430
  *
  * @author xiaoqi.zyq@alibaba-inc.com

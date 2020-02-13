@@ -7,6 +7,7 @@ package algorithm.dp;
  * 爬梯子
  * 思路：
  * 动态规划
+ * dp[i] 代表了爬 i+1个梯子可以的组合
  * dp[i]=dp[i−1]+dp[i−2]
  *
  * @author xiaoqi.zyq@alibaba-inc.com
@@ -30,17 +31,16 @@ public class ClimbingStairs {
         //init
         dp[0] = 1;
         dp[1] = 2;
-        int result = 0;
         for (int i = 2; i < n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
-            result = Math.max(dp[i], dp[i - 1]);
         }
-        return result;
+        return dp[n - 1];
+
     }
 
     public static void main(String[] args) {
         ClimbingStairs climbingStairs = new ClimbingStairs();
-        int i = climbingStairs.climbStairs(4);
+        int i = climbingStairs.climbStairs(10);
         System.out.println(i);
 
     }
