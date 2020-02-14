@@ -10,6 +10,17 @@ import java.util.Arrays;
  * <p>
  * 思路：
  * 关键：
+ * preorder = [3,9,20,15,7]
+ * inorder = [9,3,15,20,7]
+ * <p>
+ * 因为先序先遍历根节点，可以确定根节点为3;
+ * 再根据中序得到:
+ * leftInOrder = [9]
+ * RightInOrder = [15, 20 ,7]
+ * 又由于中序和先序的数组大小应该相同的,
+ * 所以,
+ * LeftPreOrder = [9]
+ * RightPreOrder = [20, 15, 7]
  *
  * @author zhangyanqi
  * @since 1.0 2020-02-11
