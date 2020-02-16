@@ -95,6 +95,9 @@ public class CoinChange {
 
 
     /**
+     * 思路：DP
+     * dp[i] 代表 凑够i块钱，要使用的张数的最少数量
+     *
      * @param coins
      * @param amount
      * @return
@@ -110,6 +113,7 @@ public class CoinChange {
         dp[0] = 0;
         for (int coin : coins) {
             for (int i = coin; i <= amount; i++) {
+                //需要凑的钱 = 面额的时候，数量直接=1
                 if (dp[i - coin] == 0 || i == coin) {
                     dp[i] = 0;
                 } else {

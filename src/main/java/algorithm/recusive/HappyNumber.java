@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.recusive;
 
 
 import java.util.HashSet;
