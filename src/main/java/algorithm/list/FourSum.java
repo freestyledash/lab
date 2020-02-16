@@ -18,6 +18,8 @@ import java.util.*;
  * 思路：
  * 类似于3sum，双重for循环+ 两头紧逼
  *
+ * leetcode 似乎有点问题
+ *
  * @author zhangyanqi
  * @since 1.0 2020-02-04
  */
@@ -60,6 +62,7 @@ public class FourSum {
                 set.add(s);
             }
         }
+        System.out.println(lists);
         return lists;
     }
 
