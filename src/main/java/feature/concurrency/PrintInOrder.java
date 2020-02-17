@@ -1,8 +1,9 @@
 package feature.concurrency;
 
 /**
- * leetcode 1114. Print in Order
+ * 1114. Print in Order
  * https://leetcode.com/problems/print-in-order/
+ * easy
  *
  * 1.使用自带的锁和wait，notify，notify all 解决问题
  * 2.使用juc工具解决问题

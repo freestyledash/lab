@@ -9,6 +9,9 @@ import java.lang.ref.*;
 public class Main {
 
 
+    /**
+     *
+     */
     public static void weakReference() {
         Object o = new Object();
         WeakReference weakReference = new WeakReference(o);
@@ -18,6 +21,10 @@ public class Main {
         System.out.println(o1);  //null
     }
 
+
+    /**
+     * gc when lack of Mem
+     */
     public static void softReference() {
         Object o = new Object();
         SoftReference<Object> objectSoftReference = new SoftReference(o);
@@ -27,6 +34,10 @@ public class Main {
         System.out.println(o1);  //not null
     }
 
+
+    /**
+     * didn't influence left cycle of gc ,only  get notification when gc
+     */
     public static void phantomReference() {
         ReferenceQueue referenceQueue = new ReferenceQueue();
         Object o = new Object();

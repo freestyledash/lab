@@ -13,11 +13,17 @@ import feature.anno.Annotation.Test;
  * @date 2019/10/29
  */
 
-
-
 @Test("1")
 @Test("2")
 public class Main {
+
+
+
+    public static void getAnnotation(){
+        //todo
+    }
+
+
 
     public static void main(String[] args) {
 
