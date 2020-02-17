@@ -39,7 +39,6 @@ public class BestTimetoBuyandSellStock {
         BestTimetoBuyandSellStock bestTimetoBuyandSellStock = new BestTimetoBuyandSellStock();
         int maxProfit = bestTimetoBuyandSellStock.maxProfit(new int[]{1, 2, 3, 4});
         System.out.println(maxProfit);
-
     }
 
 }
