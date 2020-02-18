@@ -1,5 +1,7 @@
 package algorithm.list;
 
+import java.util.Stack;
+
 /**
  * 160. Intersection of Two Linked Lists
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
@@ -22,7 +24,30 @@ public class IntersectionOfTwoLinkedLists {
 
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        //todo
-        return null;
+        //思路：双双入栈
+        Stack<ListNode> s1 = new Stack<>();
+        Stack<ListNode> s2 = new Stack<>();
+        while (headA != null) {
+            s1.add(headA);
+            headA = headA.next;
+        }
+
+        while (headB != null) {
+            s2.add(headB);
+            headB = headB.next;
+        }
+
+        ListNode head = null;
+        while (s1.size() > 0
+                && s2.size() > 0
+                && s1.peek() == s2.peek()) {
+            head = s1.peek();
+            s1.pop();
+            s2.pop();
+        }
+
+        System.out.println(head);
+
+        return head;
     }
 }

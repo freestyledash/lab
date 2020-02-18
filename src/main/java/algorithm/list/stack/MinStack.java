@@ -1,6 +1,5 @@
-package algorithm.stack;
+package algorithm.list.stack;
 
-import java.util.Comparator;
 import java.util.Stack;
 
 /**
