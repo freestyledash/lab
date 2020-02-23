@@ -1,0 +1,16 @@
+如果通过构造函数注入。则会报错：
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  testBeanA defined in file [/Users/zhangyanqi/javaProject/lab/target/classes/feature/spring/recursiveRely/TestBeanA.class]
+↑     ↓
+|  testBeanB defined in file [/Users/zhangyanqi/javaProject/lab/target/classes/feature/spring/recursiveRely/TestBeanB.class]
+└─────┘
+
+通过set方法注入不会。
+
+
+spring如何检测循环依赖？
+
+
