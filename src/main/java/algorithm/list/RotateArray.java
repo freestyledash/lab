@@ -13,18 +13,20 @@ public class RotateArray {
 
     public void rotate(int[] nums, int k) {
         k =  k % nums.length;
-        int pre = nums[0];
-        int pos = 0;
-        for(int i = 0; i<nums.length ;i++){
-            int newPos = getNewPosition(nums.length,pos,k);
-            int temp = nums[newPos];
-            nums[newPos] = pre;
-            pre = temp;
-            pos = newPos;
+        for(int start = 0; start < nums.length; start++){
+            int p = start;
+            int pV = nums[start];
+            do{
+                int nP = getNewPosition(nums.length,p,k);
+                int temp  = nums[nP];
+                nums[nP] = pV;
+                p = nP;
+                pV = temp;
+            }while(start != p);
         }
     }
 
-    private int getNewPosition(int length,int originPostion,int k){
-        return ( originPostion + k ) % (length-1);
+    private int getNewPosition(int length, int originPostion,int k){
+        return ( originPostion + k ) % length;
     }
 }

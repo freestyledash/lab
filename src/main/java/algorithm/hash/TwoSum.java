@@ -1,6 +1,9 @@
 package algorithm.hash;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * leetcode
@@ -38,20 +41,32 @@ public class TwoSum {
     }
 
     //o(n) use hashmap
-    public int[] twoSum2(int[] nums, int target) {
-        int[] res = new int[2];
-        HashMap<Integer, Integer> integerIntegerHashMap = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            integerIntegerHashMap.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
-            int want = target - nums[i];
-            Integer integer = integerIntegerHashMap.get(want);
-            if (integer != null && integer != i) {
-                res[0] = i;
-                res[i] = integer;
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer,List<Integer>> map = new HashMap();
+        for(int i = 0;i<nums.length;i++){
+            List l = map.get(nums[i]);
+            if(l==null){
+                l = new ArrayList<Integer>();
+                l.add(i);
+                map.put(nums[i],l);
+            }else{
+                l.add(i);
             }
         }
-        return res;
+        int[] result = new int[2];
+        for(int i = 0;i<nums.length;i++){
+            int n = nums[i];
+            List<Integer> m = map.get(target-n);
+            if(m!=null){
+                result[0] = i;
+                for(int j:m){
+                    if(j!=i){
+                        result[1] = j;
+                        return result;
+                    }
+                }
+            }
+        }
+        return result;
     }
 }
