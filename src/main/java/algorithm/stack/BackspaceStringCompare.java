@@ -1,4 +1,4 @@
-package algorithm.list.stack;
+package algorithm.stack;
 
 import java.util.Stack;
 
@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 844. Backspace String Compare
  * https://leetcode.com/problems/backspace-string-compare/
+ * Easy
  *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/12
