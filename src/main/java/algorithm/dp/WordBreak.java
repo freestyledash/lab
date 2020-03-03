@@ -1,4 +1,4 @@
-package algorithm.string;
+package algorithm.dp;
 
 import java.util.*;
 
