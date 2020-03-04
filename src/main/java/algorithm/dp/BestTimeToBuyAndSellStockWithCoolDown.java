@@ -19,41 +19,51 @@ import org.junit.jupiter.api.Test;
 public class BestTimeToBuyAndSellStockWithCoolDown {
 
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length <= 1) {
+        if (prices == null || prices.length == 1) {
             return 0;
         }
         if (prices.length == 2) {
-            return Math.max(prices[1] - prices[0], 0);
+            return Math.max(prices[1] - prices[2], 0);
         }
 
-        int[] profit = new int[prices.length - 1];
+        int[] sellAtDay = new int[prices.length];
+        int[] buyAtDay = new int[prices.length];
+
+        sellAtDay[0] = 0;
+        buyAtDay[0] = -prices[0];
+
         for (int i = 1; i < prices.length; i++) {
-            profit[profit.length - i] = prices[i] - prices[i - 1];
-        }
+            //update sell at i day
+            //sell at day i, maybe do nothing at day i-1 maybe buy at i-1
+            //do nothing at i-1
+            int v1 = sellAtDay[i - 1] + prices[i] - prices[i - 1];
+            //buy at i-1
+            int v2 = buyAtDay[i - 1] + prices[i];
+            sellAtDay[i] = Math.max(v1, v2);
 
-        int[] dp = new int[prices.length - 1];
-        dp[0] = profit[0];
-        dp[1] = Math.max(profit[1] + profit[0], profit[1]);
-        for (int i = 2; i < dp.length; i++) {
-            if (i - 3 < 0) {
-                dp[i] = Math.max(profit[i], profit[i] + dp[i - 1]);
+            //update buy at i day
+            //[sell, cooldown, buy]
+            int m1 = 0;
+            if (i - 2 >= 0) {
+                m1 = sellAtDay[i - 2] - prices[i];
             } else {
-                dp[i] = Math.max(profit[i] + dp[i - 1], profit[i] + dp[i - 3]);
+                m1 = -prices[i];
             }
+            //[...,do nothing ,buy] 放弃昨天到今天的利润
+            int m2 = buyAtDay[i - 1] - (prices[i] - prices[i - 1]);
+            buyAtDay[i] = Math.max(m1, m2);
         }
         int result = 0;
-        for (int i : dp) {
+        for (int i : sellAtDay) {
             result = Math.max(i, result);
         }
         return result;
     }
 
-    //test
     @Test
     public void test() {
         int[] ints = {1, 2, 3, 0, 100};
         int i = maxProfit(ints);
         System.out.println(i);
-
     }
 }
