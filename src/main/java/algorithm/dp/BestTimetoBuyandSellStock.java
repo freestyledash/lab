@@ -12,6 +12,12 @@ package algorithm.dp;
 public class BestTimetoBuyandSellStock {
 
 
+    public static void main(String[] args) {
+        BestTimetoBuyandSellStock bestTimetoBuyandSellStock = new BestTimetoBuyandSellStock();
+        int maxProfit = bestTimetoBuyandSellStock.maxProfit(new int[]{1, 2, 3, 4});
+        System.out.println(maxProfit);
+    }
+
     /*
     思路：
     每个价格减去之前最小的价格，找到这个最大的差值
@@ -33,12 +39,6 @@ public class BestTimetoBuyandSellStock {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        BestTimetoBuyandSellStock bestTimetoBuyandSellStock = new BestTimetoBuyandSellStock();
-        int maxProfit = bestTimetoBuyandSellStock.maxProfit(new int[]{1, 2, 3, 4});
-        System.out.println(maxProfit);
     }
 
 }
