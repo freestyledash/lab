@@ -47,11 +47,11 @@ public class BestTimeToBuyAndSellStockWithCoolDown {
      */
 
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length == 1) {
+        if (prices == null || prices.length <= 1) {
             return 0;
         }
         if (prices.length == 2) {
-            return Math.max(prices[1] - prices[2], 0);
+            return Math.max(prices[1] - prices[0], 0);
         }
 
         int[] sellAtDay = new int[prices.length];
