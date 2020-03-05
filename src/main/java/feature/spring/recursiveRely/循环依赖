@@ -11,6 +11,7 @@ The dependencies of some of the beans in the application context form a cycle:
 通过set方法注入不会。
 
 
-spring如何检测循环依赖？
+spring如何检测循环依赖?
+个人理解:深度遍历,遇到重复节点,意味循环依赖
 
 

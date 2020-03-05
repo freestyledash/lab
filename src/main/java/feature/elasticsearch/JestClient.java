@@ -1,5 +1,7 @@
 package feature.elasticsearch;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 学习下JestClient
  *
@@ -8,5 +10,8 @@ package feature.elasticsearch;
  */
 public class JestClient {
 
-
+    @Test
+    public void test() {
+        System.out.println("hello");
+    }
 }

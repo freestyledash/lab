@@ -1,8 +1,5 @@
 package algorithm.tree;
 
-import com.sun.jmx.remote.internal.ArrayQueue;
-
-import javax.xml.soap.Node;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,16 +12,16 @@ import java.util.Queue;
  * <p>
  * For example:
  * Given binary tree [3,9,20,null,null,15,7],
- *     3
- *    / \
- *   9  20
- *     /  \
- *    15   7
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  * return its level order traversal as:
  * [
- *   [3],
- *   [9,20],
- *   [15,7]
+ * [3],
+ * [9,20],
+ * [15,7]
  * ]
  *
  * 思路：
@@ -46,14 +43,12 @@ public class BinaryTreeLevelOrderTraversal {
         }
     }
 
-
     //DFS
     public List<List<Integer>> levelOrder(TreeNode root) {
         ArrayList<List<Integer>> list = new ArrayList<>();
         helper(root, list, 0);
         return list;
     }
-
 
     public void helper(TreeNode treeNode, List<List<Integer>> list, int i) {
         if (treeNode == null) {
@@ -69,7 +64,6 @@ public class BinaryTreeLevelOrderTraversal {
         helper(treeNode.left, list, i + 1);
         helper(treeNode.right, list, i + 1);
     }
-
 
     //BFS
     public List<List<Integer>> levelOrderBFS(TreeNode root) {
@@ -100,6 +94,5 @@ public class BinaryTreeLevelOrderTraversal {
         }
         return result;
     }
-
 
 }
