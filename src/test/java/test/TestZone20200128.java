@@ -3,12 +3,6 @@ package test;
 import org.junit.jupiter.api.Test;
 
 /**
- * Description
- * todo
- *
- * ImportantDependency
- * todo
- *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/17
  */

@@ -4,7 +4,8 @@ package algorithm.list;
  * 189. Rotate Array
  * https://leetcode.com/problems/rotate-array/
  * Easy
- * todo
+ *
+ * 很有意思的一道题
  *
  * @author zhangyanqi
  * @since 1.0 2020-02-24
@@ -36,7 +37,7 @@ public class RotateArray {
 
     public static void main(String[] args) {
         RotateArray rotateArray = new RotateArray();
-        int[] i = new int[]{1, 2, 3};
+        int[] i = new int[] {1, 2, 3};
         rotateArray.rotate(i, 1);
         for (int m : i) {
             System.out.println(m);

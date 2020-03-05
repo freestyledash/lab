@@ -7,7 +7,7 @@ package algorithm.dp;
  * dp[i] = dp[i-1] +1  OR  old - duplicateSequence + 1
  * longest = max(dp)
  *
- * todo
+ * todo  结题思路补充
  *
  * @author zhangyanqi
  * @since 1.0 2019-04-17

@@ -4,12 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 /**
- * Description
- * todo
- *
- * ImportantDependency
- * todo
- *
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/01/27
  */
