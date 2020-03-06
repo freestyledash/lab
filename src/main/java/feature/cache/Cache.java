@@ -12,25 +12,63 @@ import java.lang.annotation.Target;
  * @author xiaoqi.zyq@alibaba-inc.com
  * @date 2020/03/06
  */
-public final class Cache {
+public class Cache {
 
     private Cache() {}
 
     @Inherited
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Read {
+    public @interface ReadFromCacheFires {
+
+        /**
+         * 从第n个位置提取key
+         *
+         * @return
+         */
+        int index();
+
+        /**
+         * 前缀
+         *
+         * @return
+         */
+        String prefix();
+
+        /**
+         * 提取key
+         *
+         * @return
+         */
+        Class<? extends KeyExtractor> extractor();
 
     }
 
-    /**
-     *
-     */
     @Inherited
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Write {
+    public @interface WriteToCacheLatter {
 
+        /**
+         * 从第n个位置提取key
+         *
+         * @return
+         */
+        int index();
+
+        /**
+         * 前缀
+         *
+         * @return
+         */
+        String prefix();
+
+        /**
+         * 提取key
+         *
+         * @return
+         */
+        Class<? extends KeyExtractor> extractor();
     }
 
 }

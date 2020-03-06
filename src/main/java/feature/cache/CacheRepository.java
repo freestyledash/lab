@@ -1,7 +1,5 @@
 package feature.cache;
 
-import java.util.List;
-
 /**
  * cache core provide cache CRUD
  *
@@ -11,26 +9,29 @@ import java.util.List;
 public interface CacheRepository {
 
     /**
-     * @param condition
-     * @param <T>
-     * @param <V>
-     * @return
+     * get
+     *
+     * @param <T>  T
+     * @param type type
+     * @return T
      */
-    <T, V> T getOne(V condition);
+    <T> T get(String key, Class<T> type);
 
     /**
-     * @param condition
-     * @param <T>
-     * @param <V>
-     * @return
+     * delete
+     *
+     * @param key
+     * @return boolean
      */
-    <T, V> List<T> getList(V condition);
+    boolean delete(String key);
 
     /**
-     * @param condition
-     * @param <V>
+     * save
+     *
+     * @param key
+     * @param toSave
      * @return
      */
-    <V> boolean detete(V condition);
+    boolean save(String key, Object toSave);
 
 }
