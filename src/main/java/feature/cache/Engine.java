@@ -40,7 +40,7 @@ public class Engine {
      * find all method annotated by {@link Cache.ReadFromCacheFires}
      */
     @Around("@annotation(Cache.ReadFromCacheFires)")
-    public Object readPointCut(ProceedingJoinPoint joinPoint) throws Exception {
+    public Object readPointCut(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result = null;
         //todo
         //1. generate key
@@ -74,7 +74,7 @@ public class Engine {
      * find all method annotated by {@link Cache.WriteToCacheLatter}
      */
     @Around(value = "@annotation(Cache.WriteToCacheLatter)")
-    public Object writePointCut(ProceedingJoinPoint joinPoint) throws Exception {
+    public Object writePointCut(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result = null;
         //todo
         //1. generate key
