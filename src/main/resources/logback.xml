@@ -100,12 +100,10 @@
         </encoder>
     </appender>
 
-
     <logger name="goodLogger" level="DEBUG">
         <appender-ref ref="TRACE_CONSOLE"/>
         <appender-ref ref="INFO_LOG_FILE"/>
         <appender-ref ref="ERROR_LOG_FILE"/>
     </logger>
-
 
 </configuration>

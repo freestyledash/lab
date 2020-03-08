@@ -62,7 +62,9 @@ public class Slf4jAndLogback {
         加载原理背后的思考方式: JDNI
             https://www.oracle.com/technetwork/java/jndi/index.html
         具体实现:
-            ...
+            org.slf4j.LoggerFactory#bind
+            JDNI思想,寻找classpath下所有的 org/slf4j/impl/StaticLoggerBinder.class
+            如果有多个,提出警告,最后选择一个
          */
 
 

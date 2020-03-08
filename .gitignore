@@ -4,5 +4,6 @@ target
 .DS_Store
 
 info.log
+error.log
 info.*log
 error.*log
