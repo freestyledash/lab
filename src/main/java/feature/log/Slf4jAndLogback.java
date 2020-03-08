@@ -11,14 +11,15 @@ import org.slf4j.LoggerFactory;
  * @author zhangyanqi
  * @since 1.0 2020/3/8
  */
-public class Slf4jLog {
-    
+public class Slf4jAndLogback {
+
     @Test
     public void log() {
 
         //xml编辑配置:
         /*
-            本案例使用logback作为log实现,默认读取classpath下的logback.xml
+            本案例使用logback作为slf4j实现,默认读取classpath下的logback.xml
+
             logback.xml标签主要分为3种:
                appender
                logger
@@ -31,17 +32,26 @@ public class Slf4jLog {
             详细请见 http://logback.qos.ch/manual/configuration.html
          */
 
-
         // java代码流程:
         //1. get logger
         Logger logger = LoggerFactory.getLogger("goodLogger");
 
-        //log trace debug info warn error
-        logger.info("info");
-        logger.error("error");
-        logger.debug("debug");
+        //log,trace debug info warn error
+        int i = 10000;
+        while (i > 0) {
+            logger.trace("trace");
+            logger.debug("debug");
+            logger.debug("debug");
+            logger.info("info");
+            logger.info("info");
+            logger.warn("warn");
+            logger.warn("warn");
+            logger.error("error");
+            logger.error("error");
+            i--;
+        }
 
-        // xml 配置实践
+        //xml配置实践
         /*
         使用同一个logger对象,不同的level的日志放在不同的文件中,文件滚动记录
          */

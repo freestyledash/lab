@@ -1,27 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <appender name="INFO" class="ch.qos.logback.core.ConsoleAppender">
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+    <appender name="ALL_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
         </filter>
         <encoder>
-            <pattern>INFO %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <appender name="DEBUG" class="ch.qos.logback.core.ConsoleAppender">
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>ERROR</level>
+    <!--输入info到file-->
+    <appender name="INFO_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>DENY</onMatch>
         </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <file>
+            ./info.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>./info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>1MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>6GB</totalSizeCap>
+        </rollingPolicy>
         <encoder>
-            <pattern>DEBUG %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+
+    <!--输出error到file-->
+    <appender name="ERROR_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <file>
+            ./error.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>./error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>1MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>6GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
 
     <logger name="goodLogger" level="DEBUG">
-        <appender-ref ref="INFO"/>
-        <appender-ref ref="DEBUG"/>
+        <appender-ref ref="ALL_CONSOLE"/>
+        <appender-ref ref="INFO_LOG_FILE"/>
+        <appender-ref ref="ERROR_LOG_FILE"/>
     </logger>
 
 

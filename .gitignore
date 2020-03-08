@@ -2,3 +2,7 @@
 target
 .idea
 .DS_Store
+
+info.log
+info.*log
+error.*log
