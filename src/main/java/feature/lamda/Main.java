@@ -12,6 +12,15 @@ import java.util.stream.Collectors;
  */
 public class Main {
 
+    /*
+    create steam
+
+    operate
+
+    collect/get result
+     */
+
+
     public static void main(String[] args) {
         ArrayList<List<String>> lists = new ArrayList<>();
         ArrayList<String> strings1 = new ArrayList<>();

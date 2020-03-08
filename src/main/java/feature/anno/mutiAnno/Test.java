@@ -13,6 +13,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
+//!
 @Repeatable(Tests.class)
 public @interface Test {
     String value();
