@@ -12,8 +12,7 @@ import org.slf4j.LoggerFactory;
  * @since 1.0 2020/3/8
  */
 public class Slf4jLog {
-
-
+    
     @Test
     public void log() {
 
