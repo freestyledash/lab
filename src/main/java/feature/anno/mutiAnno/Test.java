@@ -1,4 +1,4 @@
-package feature.anno.Annotation;
+package feature.anno.mutiAnno;
 
 /**
  * @author xiaoqi.zyq@alibaba-inc.com
