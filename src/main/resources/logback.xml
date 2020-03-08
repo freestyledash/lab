@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <appender name="ALL_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <!--输出trace到CONSOLE-->
+    <appender name="TRACE_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>TRACE</level>
             <onMatch>ACCEPT</onMatch>
@@ -27,7 +28,7 @@
         </encoder>
     </appender>
 
-    <!--输入info到file-->
+    <!--输出info到file-->
     <appender name="INFO_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>TRACE</level>
@@ -101,7 +102,7 @@
 
 
     <logger name="goodLogger" level="DEBUG">
-        <appender-ref ref="ALL_CONSOLE"/>
+        <appender-ref ref="TRACE_CONSOLE"/>
         <appender-ref ref="INFO_LOG_FILE"/>
         <appender-ref ref="ERROR_LOG_FILE"/>
     </logger>
