@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) {
-
         ArrayList<List<String>> lists = new ArrayList<>();
         ArrayList<String> strings1 = new ArrayList<>();
         strings1.add("1");
@@ -23,12 +22,12 @@ public class Main {
         strings2.add("4");
         lists.add(strings1);
         lists.add(strings2);
+
         List<String> collect = lists.stream().flatMap(s -> {
             System.out.println(s);
             return s.stream();
         }).collect(Collectors.toList());
         System.out.println(collect);
-
     }
 
 }
