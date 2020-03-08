@@ -44,13 +44,13 @@ public class Slf4jLog {
 
         // xml 配置实践
         /*
-        使用同一个logger,不同的level的日志放在不同的文件种
+        使用同一个logger对象,不同的level的日志放在不同的文件中,文件滚动记录
          */
 
         //底层原理
         /*
         Slf4j module 提供api,加载 concrete logger
-        加载方式:
+        加载原理背后的思考方式: JDNI
             https://www.oracle.com/technetwork/java/jndi/index.html
         具体实现:
             ...
