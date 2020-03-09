@@ -20,6 +20,6 @@ public interface KeyExtractor<T> {
      * @param t
      * @return
      */
-     String extract(T t);
+    String extract(T t);
 
 }

@@ -1,14 +1,22 @@
 package feature.cache;
 
+import java.lang.reflect.Method;
+
 import javax.annotation.Resource;
 
+import com.alibaba.fastjson.JSON;
+
+import feature.cache.anno.CleanCacheLatter;
+import feature.cache.anno.ReadFromCacheFires;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 /**
- * Engine will find all method annotated by {@link Cache.Read},{@link Cache.Write} and weave cache aspect into those
+ * Engine will find all method annotated by {@link ReadFromCacheFires},{@link CleanCacheLatter} and weave cache aspect
+ * into those
  * methods
  *
  * aspect mainly duty is below:
@@ -37,48 +45,61 @@ public class Engine {
     private CacheRepository repository;
 
     /**
-     * find all method annotated by {@link Cache.ReadFromCacheFires}
+     * find all method annotated by {@link feature.cache.anno.ReadFromCacheFires}
      */
-    @Around("@annotation(Cache.ReadFromCacheFires)")
-    public Object readPointCut(ProceedingJoinPoint joinPoint) throws Exception {
+    @Around("@annotation(feature.cache.anno.ReadFromCacheFires)")
+    public Object readPointCut(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result = null;
-        //todo
-        //1. generate key
         String key = null;
-
-        //2. use key to get object maybe cached in repository
-        result = repository.get(key, Object.class);
-
-        //3. if hit return key
-        if (result != null) {
-            return result;
+        //1. generate key
+        try {
+            key = generateKeyFromReadFromCacheFires(joinPoint);
+        } catch (Exception e) {
+            throw new RuntimeException("生成KEY失败");
         }
 
-        //4. if miss invoke proxied method
+        //2. use key to get object maybe cached in repository
+        String resultJson = repository.get(key);
+        if (resultJson != null) {
+            try {
+                DataWarp dataWarp = JSON.parseObject(resultJson, DataWarp.class);
+                return dataWarp.data;
+            } catch (Exception e) {
+                throw e;
+            }
+        }
+
+        //3. if miss invoke proxied method
         try {
             result = joinPoint.proceed();
-            //write to cache
             //this could failed ,but it shouldn't stop the process
             try {
-                repository.save(key, result);
+                DataWarp dataWarp = new DataWarp();
+                dataWarp.data = result;
+                String s = JSON.toJSONString(dataWarp);
+                repository.save(key, s);
             } catch (Exception e) {
                 //ignore
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw e;
         }
         return result;
     }
 
     /**
-     * find all method annotated by {@link Cache.WriteToCacheLatter}
+     * find all method annotated by {@link feature.cache.anno.CleanCacheLatter}
      */
-    @Around(value = "@annotation(Cache.WriteToCacheLatter)")
-    public Object writePointCut(ProceedingJoinPoint joinPoint) throws Exception {
+    @Around(value = "@annotation(feature.cache.anno.CleanCacheLatter)")
+    public Object writePointCut(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result = null;
-        //todo
-        //1. generate key
         String key = null;
+        //1. generate key
+        try {
+            key = generateKeyFromCleanCacheLatter(joinPoint);
+        } catch (Exception e) {
+            throw new RuntimeException("生成KEY失败");
+        }
 
         // 2.invoke origin method
         try {
@@ -95,4 +116,48 @@ public class Engine {
         return result;
     }
 
+    /**
+     * 生成缓存key
+     *
+     * @param joinPoint
+     * @return
+     * @throws Exception
+     */
+    private String generateKeyFromReadFromCacheFires(ProceedingJoinPoint joinPoint) throws Exception {
+        MethodSignature methodSignature = (MethodSignature)joinPoint.getStaticPart().getSignature();
+        Method method = methodSignature.getMethod();
+        ReadFromCacheFires annotation = method.getAnnotation(ReadFromCacheFires.class);
+        Class<? extends KeyExtractor> extractor = annotation.extractor();
+        KeyExtractor keyExtractor = extractor.newInstance();
+        Object[] args = joinPoint.getArgs();
+        int index = annotation.index();
+        String prefix = annotation.prefix();
+        String key = prefix + "-" + keyExtractor.extract(args[index]);
+        return key;
+    }
+
+    private String generateKeyFromCleanCacheLatter(ProceedingJoinPoint joinPoint) throws Exception {
+        MethodSignature methodSignature = (MethodSignature)joinPoint.getStaticPart().getSignature();
+        Method method = methodSignature.getMethod();
+        CleanCacheLatter annotation = method.getAnnotation(CleanCacheLatter.class);
+        Class<? extends KeyExtractor> extractor = annotation.extractor();
+        KeyExtractor keyExtractor = extractor.newInstance();
+        Object[] args = joinPoint.getArgs();
+        int index = annotation.index();
+        String prefix = annotation.prefix();
+        String key = prefix + "-" + keyExtractor.extract(args[index]);
+        return key;
+    }
+
+    private static class DataWarp {
+        private Object data;
+
+        public Object getData() {
+            return data;
+        }
+
+        public void setData(Object data) {
+            this.data = data;
+        }
+    }
 }

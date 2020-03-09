@@ -11,11 +11,9 @@ public interface CacheRepository {
     /**
      * get
      *
-     * @param <T>  T
-     * @param type type
      * @return T
      */
-    <T> T get(String key, Class<T> type);
+    String get(String key);
 
     /**
      * delete
@@ -32,6 +30,8 @@ public interface CacheRepository {
      * @param toSave
      * @return
      */
-    boolean save(String key, Object toSave);
+    boolean save(String key, String toSave);
+
+    //todo add introspect method
 
 }
