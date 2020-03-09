@@ -1,5 +1,5 @@
 # algorithm package
-including basic algorithm,leetcode..
+including basic algorithm,leetcode problem solutions...
 
 # feature package
-including spring,netty,jestClient and other framework practicing and source code analyze 
+including spring,netty,jestClient,slf4j,HBase and other frameworks practicing and source analyze 

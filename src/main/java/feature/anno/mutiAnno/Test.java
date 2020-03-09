@@ -1,4 +1,4 @@
-package feature.anno.Annotation;
+package feature.anno.mutiAnno;
 
 /**
  * @author xiaoqi.zyq@alibaba-inc.com
@@ -13,6 +13,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
+//!
 @Repeatable(Tests.class)
 public @interface Test {
     String value();
