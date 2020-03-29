@@ -4,6 +4,8 @@ package algorithm.dp;
  * 121. Best Time to Buy and Sell Stock
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  * easy
+ * <p>
+ * 买卖一次,找到最佳的收益
  *
  * @author zhangyanqi
  * @review 2019-12-18
@@ -20,9 +22,7 @@ public class BestTimetoBuyandSellStock {
 
     /*
     思路：
-    每个价格减去之前最小的价格，找到这个最大的差值
-    遍历数组
-    记录最小的价格，记录最大的利润
+    profit = Max(profit,price[n] - minPrice)
      */
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length <= 1) {

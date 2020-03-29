@@ -7,7 +7,7 @@ package algorithm.dp;
  * 爬梯子
  * 思路：
  * 动态规划
- * dp[i] 代表了爬 i+1个梯子可以的组合
+ * dp[i] 代表了爬到i+1个梯子可以的组合
  * dp[i]=dp[i−1]+dp[i−2]
  *
  * @author xiaoqi.zyq@alibaba-inc.com

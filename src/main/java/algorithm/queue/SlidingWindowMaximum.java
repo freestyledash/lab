@@ -29,7 +29,8 @@ import java.util.*;
  * @author zhangyanqi
  * @since 1.0 2020-02-04
  */
-public class SlidingWindowMaximum {
+public class
+ SlidingWindowMaximum {
     public static int[] maxSlidingWindow(int[] arr, int k) throws Exception {
 
         List<Integer> l = new ArrayList<Integer>();

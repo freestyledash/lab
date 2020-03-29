@@ -3,16 +3,17 @@ package algorithm.dp;
 /**
  * leetCode 3
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
- *
- * dp[i] = dp[i-1] +1  OR  old - duplicateSequence + 1
- * longest = max(dp)
- *
- * todo  结题思路补充
+ * Medium
+ * <p>
+ * 思路:
+ * 不重复的String 如果包含当前的newChar,则 subString 不重复的String 然后再加上newChar
  *
  * @author zhangyanqi
  * @since 1.0 2019-04-17
  */
 public class LongestSubstringWithoutRepeatingCharacters {
+
+
     public int lengthOfLongestSubstring(String s) {
         if ("".equals(s)) {
             return 0;
@@ -43,7 +44,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
         LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters
-            = new LongestSubstringWithoutRepeatingCharacters();
+                = new LongestSubstringWithoutRepeatingCharacters();
         int aaaaa = longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring("dvdf");
         System.out.println(aaaaa);
     }

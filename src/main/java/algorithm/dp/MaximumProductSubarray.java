@@ -6,6 +6,11 @@ package algorithm.dp;
  * https://leetcode.com/problems/maximum-product-subarray/
  * medium
  * https://www.cnblogs.com/grandyang/p/4028713.html
+ * <p>
+ * <p>
+ * 思路:
+ * maxDP[n] = Max(minDP[n-1] * nums[n],maxDP[n-1] * nums[n],current)
+ * minDP[n] = Min(minDP[n-1] * nums[n],maxDP[n-1] * nums[n],current)
  *
  * @author zhangyanqi
  * @since 1.0 2020-02-14
@@ -46,16 +51,13 @@ public class MaximumProductSubarray {
         return a;
     }
 
-
     private int getMin(int a, int b, int c) {
-
         if (a > b) {
             a = b;
         }
         if (a > c) {
             a = c;
         }
-
         return a;
     }
 

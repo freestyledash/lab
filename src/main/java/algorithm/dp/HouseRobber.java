@@ -6,6 +6,7 @@ package algorithm.dp;
  * Easy
  * <p>
  * 思路：DP
+ * dp[i] 代表了 一定要抢i号房子的最优解
  *
  * @author zhangyanqi
  * @since 1.0 2020-02-16

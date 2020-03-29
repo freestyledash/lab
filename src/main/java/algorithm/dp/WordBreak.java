@@ -1,14 +1,19 @@
 package algorithm.dp;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 139. Word Break
  * https://leetcode.com/problems/word-break/
  * Medium
  * <p>
+ * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words,
+ * determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+ *
+ * <p>
  * 思路:
- * BFS 耗时间
+ * BFS 比较耗时间,不推荐
  * DP https://leetcode.com/problems/word-break/discuss/523665/Java-DP-solution-with-explanation
  *
  * @author zhangyanqi

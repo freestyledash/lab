@@ -8,7 +8,12 @@ import java.util.Arrays;
  * 300. Longest Increasing Subsequence
  * https://leetcode.com/problems/longest-increasing-subsequence/submissions/
  * Medium
- * todo
+ * <p>
+ * 思路:
+ * dp[i]代表了必须包含当前i元素的最长上升序列
+ * dp[i] = dp[i-1]+1
+ * or
+ * dp[i] =1;
  *
  * @author zhangyanqi
  * @since 1.0 2020/3/16
