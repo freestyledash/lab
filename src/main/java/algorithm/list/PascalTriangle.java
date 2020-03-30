@@ -9,6 +9,9 @@ import java.util.List;
  * https://leetcode.com/problems/pascals-triangle/
  * 118. Pascal's Triangle
  * Easy
+ * <p>
+ * 思路:
+ * 观察规则
  *
  * @author zhangyanqi
  * @since 1.0 2020/3/30
