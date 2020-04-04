@@ -12,10 +12,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @date 2020/03/05
  */
 @SpringBootApplication
-@EnableAspectJAutoProxy(proxyTargetClass = true)
+//@EnableAspectJAutoProxy(proxyTargetClass = true)
 @ComponentScan(value = "feature.*")
 public class Application {
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
