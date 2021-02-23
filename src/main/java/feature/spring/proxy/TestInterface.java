@@ -12,5 +12,5 @@ package feature.spring.proxy;
  */
 public interface TestInterface {
 
-    String dosth(Integer a);
+    public String dosth(Integer a);
 }

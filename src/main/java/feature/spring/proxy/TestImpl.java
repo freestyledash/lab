@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2020/04/04
  */
 @Component
-@Transactional
 public class TestImpl implements TestInterface {
 
     @Override

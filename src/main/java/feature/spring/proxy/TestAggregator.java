@@ -24,14 +24,15 @@ public class TestAggregator implements ApplicationContextAware {
     @Resource
     private TestInterface testInterface;
 
-//    @Resource
-//    private TestImpl test;
+    @Resource
+    private TestImpl test;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("===Interface===");
         System.out.println(testInterface.getClass());
         System.out.println("===implements===");
-//        System.out.print(test.getClass());
+        System.out.println(test.getClass());
+        System.out.println(test.dosth(1));
     }
 }

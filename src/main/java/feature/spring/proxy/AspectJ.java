@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
  */
 
 @Aspect
-//@Component
+@Component
 public class AspectJ {
 
     @Around("execution(public * feature.spring.proxy.TestInterface.*(..))")
     public Object logAroundAllOpenSerivePublicMethods(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
-            System.out.println("代理");
+            System.out.println("proxy invoke");
             Object result = joinPoint.proceed();
             return result;
         } catch (Throwable e) {
