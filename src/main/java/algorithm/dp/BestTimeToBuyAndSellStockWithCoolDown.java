@@ -25,27 +25,27 @@ public class BestTimeToBuyAndSellStockWithCoolDown {
 
         //初始化
         /*
-        matrix[0]  持有
-        matrix[1]  卖出 次日不可买入
-        matrix[2]  不持有 次日可买入
+        dp[0]  持有
+        dp[1]  卖出 次日不可买入
+        dp[2]  不持有 次日可买入
 
         cell里面的值代表了收益
          */
-        int[][] matrix = new int[3][prices.length];
-        matrix[0][0] = -prices[0];
-        matrix[1][0] = 0;
-        matrix[2][0] = 0;
+        int[][] dp = new int[3][prices.length];
+        dp[0][0] = -prices[0];
+        dp[1][0] = 0;
+        dp[2][0] = 0;
 
         //dp 更新表单
         for (int i = 1; i < prices.length; i++) {
             // 更新 买入的情况
-            matrix[0][i] = Math.max(matrix[0][i - 1], matrix[2][i - 1] - prices[i]);
-            matrix[1][i] = matrix[0][i - 1] + prices[i];
-            matrix[2][i] = matrix[1][i - 1];
+            dp[0][i] = Math.max(dp[0][i - 1], dp[2][i - 1] - prices[i]);
+            dp[1][i] = dp[0][i - 1] + prices[i];
+            dp[2][i] = dp[1][i - 1];
         }
 
         //得到结果
-        result = Math.max(matrix[2][prices.length - 1], matrix[1][prices.length - 1]);
+        result = Math.max(dp[2][prices.length - 1], dp[1][prices.length - 1]);
 
         return result;
     }
