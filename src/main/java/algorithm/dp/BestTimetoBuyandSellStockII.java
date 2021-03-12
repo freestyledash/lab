@@ -36,7 +36,6 @@ public class BestTimetoBuyandSellStockII {
     我可以买无限次
     只要后者的价格高于前者，我就买
      */
-
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length <= 1) {
             return 0;

@@ -13,22 +13,30 @@ package algorithm.dp;
  */
 public class BestTimetoBuyandSellStock {
 
-
     public static void main(String[] args) {
         BestTimetoBuyandSellStock bestTimetoBuyandSellStock = new BestTimetoBuyandSellStock();
-        int maxProfit = bestTimetoBuyandSellStock.maxProfit(new int[]{1, 2, 3, 4});
+        int maxProfit = bestTimetoBuyandSellStock.maxProfit(new int[] {1, 2, 3, 4});
         System.out.println(maxProfit);
     }
 
-    /*
-    思路：
-    profit = Max(profit,price[n] - minPrice)
+    /**
+     * 思路：
+     * profit = Max(profit,price[n] - minPrice)
+     *
+     * @param prices
+     *
+     * @return
      */
     public int maxProfit(int[] prices) {
+
+        //初始化判断
         if (prices == null || prices.length <= 1) {
             return 0;
         }
+
+        //初始化返回值
         int result = 0;
+
         //最小价格
         int min = prices[0];
         for (int i = 1; i < prices.length; i++) {
