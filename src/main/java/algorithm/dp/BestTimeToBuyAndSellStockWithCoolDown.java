@@ -15,6 +15,7 @@ package algorithm.dp;
 public class BestTimeToBuyAndSellStockWithCoolDown {
 
     public int maxProfit(int[] prices) {
+
         //边界条件
         if (prices == null || prices.length <= 0) {
             return 0;
@@ -44,7 +45,10 @@ public class BestTimeToBuyAndSellStockWithCoolDown {
             dp[2][i] = dp[1][i - 1];
         }
 
-        //得到结果
+        /*
+        得到结果
+        最后一天肯定是不持有的
+         */
         result = Math.max(dp[2][prices.length - 1], dp[1][prices.length - 1]);
 
         return result;
