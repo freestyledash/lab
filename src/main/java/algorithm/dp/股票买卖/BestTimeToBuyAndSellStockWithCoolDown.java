@@ -1,4 +1,4 @@
-package algorithm.dp;
+package algorithm.dp.股票买卖;
 
 /**
  * 309. Best Time to Buy and Sell Stock with Cooldown
@@ -38,6 +38,7 @@ public class BestTimeToBuyAndSellStockWithCoolDown {
         dp[2][0] = 0;
 
         //dp 更新表单
+        //疑问?为什么要定义这3个状态,dp[0],dp[1],dp[2]的更新顺序为什么会这样?
         for (int i = 1; i < prices.length; i++) {
             // 更新 买入的情况
             dp[0][i] = Math.max(dp[0][i - 1], dp[2][i - 1] - prices[i]);

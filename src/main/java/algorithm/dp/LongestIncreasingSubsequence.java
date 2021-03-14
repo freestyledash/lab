@@ -2,18 +2,15 @@ package algorithm.dp;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
 /**
  * 300. Longest Increasing Subsequence
  * https://leetcode.com/problems/longest-increasing-subsequence/submissions/
  * Medium
  * <p>
+ *
  * 思路:
- * dp[i]代表了必须包含当前i元素的最长上升序列
- * dp[i] = dp[i-1]+1
- * or
- * dp[i] =1;
+ * https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai
+ * -gui-hua-2/
  *
  * @author zhangyanqi
  * @since 1.0 2020/3/16
@@ -21,30 +18,39 @@ import java.util.Arrays;
 public class LongestIncreasingSubsequence {
 
     public int lengthOfLIS(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+
+        int result = 0;
+
+        if (nums == null || nums.length == 0) {
+            return result;
         }
 
         int[] dp = new int[nums.length];
-        dp[0] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            dp[i] = 1;
+        }
+
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i - 1] < nums[i]) {
-                dp[i] = dp[i - 1] + 1;
-            } else {
-                dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+                }
             }
         }
-        int result = 0;
+
         for (int i : dp) {
-            result = Math.max(i, result);
+            if (i > result) {
+                result = i;
+            }
         }
-        System.out.println(Arrays.toString(dp));
+
         return result;
+
     }
 
     @Test
     public void test() {
-        int i = lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18});
+        int i = lengthOfLIS(new int[] {10, 9, 2, 5, 3, 7, 101, 18});
         System.out.println(i);
     }
 }

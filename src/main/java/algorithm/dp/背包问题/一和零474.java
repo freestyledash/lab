@@ -1,4 +1,4 @@
-package algorithm.dp;
+package algorithm.dp.背包问题;
 
 /**
  * Description
@@ -33,6 +33,8 @@ public class 一和零474 {
                     count0++;
                 }
             }
+
+            //为什么是从最小往最大的走? 比方便,如果从小的往打的走,需要每次判断是否越界
             for (int i = m - 1; i >= count0 - 1; i--) {
                 for (int j = n - 1; j >= count1 - 1; j--) {
                     dp[i][j] = Math.max(dp[i][j], dp[i - count0][j - count1] + 1);
@@ -40,6 +42,6 @@ public class 一和零474 {
             }
         }
 
-        return dp[m-1][n-1];
+        return dp[m - 1][n - 1];
     }
 }
