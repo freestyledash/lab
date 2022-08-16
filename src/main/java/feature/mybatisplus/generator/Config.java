@@ -1,4 +1,4 @@
-package feature.mybatisplus;
+package feature.mybatisplus.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import lombok.Data;
