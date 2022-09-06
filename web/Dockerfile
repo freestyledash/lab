@@ -8,5 +8,5 @@ ENV SPRING_PROFILE=""
 ENV JAVA_OPTS=""
 ENV JAVA_PORT=""
 EXPOSE ${JAVA_PORT}
-ENTRYPOINT exec java -XshowSettings:vm ${JAVA_OPTS} -Dspring.profiles.active=${SPRING_PROFILE} -Dserver.port=${JAVA_PORT} -jar /usr/local/app/blood-lipid-service.jar
+ENTRYPOINT exec java -XshowSettings:vm ${JAVA_OPTS} -Dspring.profiles.active=${SPRING_PROFILE} -Dserver.port=${JAVA_PORT} -jar /usr/local/app/lab_web.jar
 MAINTAINER zyq
