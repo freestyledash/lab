@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <groupId>zyq</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>A</artifactId>
+    <name>A Project</name>
+    <version>0.0.1-Snapshot</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>zyq</groupId>
+            <artifactId>B</artifactId>
+            <version>0.0.1-Snapshot</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+            <!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>commons-codec</groupId>-->
+<!--                    <artifactId>commons-codec</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+
+        <dependency>
+            <groupId>zyq</groupId>
+            <artifactId>C</artifactId>
+            <version>0.0.1-Snapshot</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+            <!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>commons-codec</groupId>-->
+<!--                    <artifactId>commons-codec</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+<!--        <dependency>-->
+<!--            <groupId>commons-codec</groupId>-->
+<!--            <artifactId>commons-codec</artifactId>-->
+<!--            <version>1.15</version>-->
+<!--        </dependency>-->
+
+    </dependencies>
+</project>
