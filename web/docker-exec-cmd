@@ -1,0 +1,7 @@
+
+
+build docker image
+docker build -t lab-web:v0 .
+
+run docker image
+docker run -p 8080:8080 -t  docker.io/library/lab-web:v0
