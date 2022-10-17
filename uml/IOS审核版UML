@@ -1,0 +1,40 @@
+@startuml
+Actor user
+participant ios
+participant android
+participant biz_server
+participant user_center
+participant nacos
+
+group 服务端拉取新的配置
+biz_server->nacos:拉取审核版本(区分安卓和ios)
+end
+
+group ios进入app
+ios->biz_server: 查询审核版version
+biz_server->biz_server: 查询配置,如果失败,直接非审核版
+ios->ios:判断流程,是否进入审核版
+end
+
+group android进入app
+android->biz_server: 查询审核版version
+biz_server->biz_server: 查询配置,如果失败,直接非审核版
+android->android:判断流程,是否进入审核版
+end
+
+group ios登录
+user->ios
+ios->ios: 检查审核版本和当前app版本
+ios->user_center: 短信登录[ios][需要用户中心支持]
+end
+
+group onboard
+user->ios
+ios->biz_server: 进入审核版本流程
+biz_server->biz_server: 判断是否是审核版本,如果是则打标
+biz_server->biz_server:  \n 1. 用户初始化,医生码填写,医患关系绑定  [ 识别业务身份 审核版本 or 非审核版本 or 订单打标:审核版的订单]
+biz_server->biz_server: 其他onboard 流程 \n 2.个人信息提交,问卷填写,审核自动通过 \n 3.血脂报告自动跳过 \n 4.申请设备流程跳过 \n ...
+biz_server->biz_server: 选择生成课程难度,生成课程[@汤sir @佟洲]
+end
+
+@enduml

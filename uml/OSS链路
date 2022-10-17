@@ -1,0 +1,38 @@
+@startuml
+participant fe
+participant oss
+participant server
+
+group 永久访问的链接
+group 存储
+fe->oss:上传
+oss->fe:fileId,path,永久url
+fe->server:存储
+server->server:存储path
+end
+group 访问
+fe->server
+server->fe:url
+end
+end
+
+group 临时访问的链接
+group 存储
+fe->oss:上传
+oss->fe:fileId,path,临时url用于预览
+fe->server:存储
+server->server:存储path
+end
+
+group 访问
+fe->server
+server->oss:get temp url by ak,sk or token
+oss->oss:cache
+oss->oss:cdn
+oss->server:temp url
+server->fe:url
+end
+end
+
+
+@enduml

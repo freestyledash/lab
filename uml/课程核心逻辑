@@ -1,0 +1,36 @@
+@startuml
+participant user
+participant biz
+
+group B端逻辑
+group 课程中心
+biz->biz:更新课程池
+end
+
+group 审核
+biz->biz:更新审核版本
+end
+end
+
+group c端逻辑
+group 用户初始化
+user->biz:注册
+user->biz:onboarding:填写信息,发货,收货,定级运动,生成运动目标
+end
+
+group 用户运动中
+user->biz:匹配课程
+user->biz:选择课程
+user->biz:运动结束,记录运动时间
+endgit
+
+group 用户一周运动结束
+user->biz: 运动达标计划统计
+user->biz: 生成周报
+end
+
+group 运动疗程结束
+user->biz: 暂无逻辑
+end
+end
+@enduml

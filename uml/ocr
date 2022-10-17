@@ -1,0 +1,8 @@
+@startuml
+participant biz
+participant ocr
+
+biz->ocr: 提交scan的url
+ocr->biz: 返回结果
+
+@enduml

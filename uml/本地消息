@@ -1,0 +1,15 @@
+@startuml
+participant biz_thread
+participant mq_thread
+participant db
+
+biz_thread->db: begin trans
+biz_thread->biz_thread: 业务执行
+biz_thread->biz_thread: 落库数据
+biz_thread->biz_thread: 落库消息
+biz_thread->db: commit
+
+mq_thread->db: scan
+mq_thread->mq_thread: send mq
+
+@enduml

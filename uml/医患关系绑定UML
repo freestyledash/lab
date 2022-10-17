@@ -1,0 +1,8 @@
+@startuml
+participant biz_server
+participant user_center
+user_center->biz_server: bind patientId doctorId 参数:doctor code , patient wx union id
+biz_server->user_center: doctorServiceApi.getDoctorUserId 得到医生user_id by doctorCode
+biz_server->user_center:  userServiceApi.wechatRegister 得到患者user_id by  patientUnionId
+biz_server->user_center:  patientServiceApi.modifyDoctorRelation 医患关系绑定
+@enduml

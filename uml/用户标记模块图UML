@@ -1,0 +1,33 @@
+@startuml
+Actor user
+participant user_tag_system
+participant user_center
+
+group 打标
+user->user_tag_system:打标
+end
+
+group 去标
+user->user_tag_system:去标
+end
+
+group by user 查标(分页)
+user->user_tag_system:by人查标记
+end
+
+group by user 查标
+user->user_tag_system:by人 by 标记 查标记
+end
+
+group by 标查询 user(分页)
+user->user_tag_system:查用户
+end
+
+group 通过手机号打标
+user->user_tag_system:通过手机号批量达标
+user_tag_system->user_center:批量查询用户id by手机号
+user_tag_system->user_tag_system:打标,允许失败
+user_tag_system->user:返回打标结果
+end
+
+@enduml

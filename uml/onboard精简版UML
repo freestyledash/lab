@@ -1,0 +1,32 @@
+@startuml
+participant phone
+participant server
+participant oss
+participant ocr
+
+group 得到当前页面
+phone -> server: 不再返回医生码code页面
+end
+
+group 提交个人信息
+phone -> server
+server -> server:医生码不再填写
+server -> server:推进医生码状态
+server -> server:医患关系绑定
+server -> server:医患关系绑定
+server -> server:订单打标
+server -> server:其他逻辑
+end
+
+group 提交设备申请页面
+phone -> server:得到用户之前填写的用户姓名&用户电话等
+end
+
+group 血脂OCR识别
+phone -> oss: 上传图片 得到图片id 一个临时的url
+phone -> ocr:识别文字
+phone -> server:图片id,提交的表单,存储DB
+
+end
+
+@enduml
