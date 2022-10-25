@@ -1,0 +1,19 @@
+@startuml
+Actor user
+participant biz_server
+participant short_url_server
+
+group 生成
+biz_server->short_url_server: 生成短链
+short_url_server->short_url_server: 存储原始链接
+short_url_server->short_url_server: 生成短链
+end
+
+group 访问
+user->short_url_server:访问
+short_url_server->short_url_server: 翻译短链
+short_url_server->user: 302
+user->biz_server: 访问
+end
+
+@enduml

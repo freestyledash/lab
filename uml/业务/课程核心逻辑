@@ -22,7 +22,7 @@ group 用户运动中
 user->biz:匹配课程
 user->biz:选择课程
 user->biz:运动结束,记录运动时间
-endgit
+end
 
 group 用户一周运动结束
 user->biz: 运动达标计划统计
