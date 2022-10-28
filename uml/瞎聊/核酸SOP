@@ -1,0 +1,15 @@
+@startuml
+Actor user
+Actor proxy
+participant 场所码牌子
+participant 做核酸亭子
+
+user->proxy: request biz
+proxy->场所码牌子 : take a picture
+proxy->user: send picture
+user->user: scan
+user->proxy: send green code screen shut
+做核酸亭子->proxy: 扫码
+做核酸亭子->proxy: 做核酸(可逃)
+
+@enduml

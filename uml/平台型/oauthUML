@@ -1,0 +1,14 @@
+@startuml
+Actor user
+participant biz
+participant login_center
+
+user->biz: login
+biz->login_center
+login_center->user: login page
+user->login_center: login
+login_center->user: success 302 with token
+user->biz: with token
+biz->login_center: request userInfo
+biz->biz: init user at biz
+@enduml

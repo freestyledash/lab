@@ -9,14 +9,14 @@ user->qrcode_scan_biz:扫描二维码
 qrcode_scan_biz->biz_server:绑定请求
 biz_server->user_center:查询用户id
 biz_server->user_center:查询医生id
-biz_server->biz_server:查询是否已经绑定
+biz_server->user_center:查询是否已经绑定
 
 alt 没有绑定
 biz_server->user_center:绑定医患关系
 user_center->user_center: 预创建用户
 end
 
-alt 已经绑定兜底医生&绑定的医生不是兜底医生
+alt 已经绑定兜底医生
 biz_server->user_center:解绑关系,并重新绑定医患关系
 biz_server->biz_server:尝试更新血脂本地医患关系
 end
