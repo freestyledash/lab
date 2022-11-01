@@ -97,6 +97,6 @@ group onboarding兜底
     alt 患者信息没有unionid
         biz_server->biz_server: 报警
     end
-    biz_server->biz_server: 本地DB更新用户 or 本地DB创建用户
+    biz_server->biz_server: 本地DB更新用户 or 本地DB创建用户 (如果没有兜底医生,则会创建本地兜底医生)
 end
 @enduml
