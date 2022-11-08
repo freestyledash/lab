@@ -1,0 +1,118 @@
+@startuml
+actor user
+participant qrcode_scan_biz
+participant biz_server
+participant user_center
+
+group 患者扫码阶段(预绑定)[正常用户]
+    user->qrcode_scan_biz:扫描二维码
+    qrcode_scan_biz->biz_server:绑定请求(doctorCode,patientWxUnionId)
+    biz_server->user_center:查询已经存在的用户id or 创建用户 by wxUnionId
+    biz_server->user_center:查询医生id bydoctorCode
+    biz_server->user_center:查询患者是否已经绑定
+    biz_server->biz_server:查询血脂系统本地用户数据
+
+    group 血脂系统无用户,未绑定
+        biz_server->biz_server: 本地DB记录下预绑定关系
+    end
+
+    group 血脂系统有用户,未绑定
+        biz_server->user_center:绑定医患关系
+        biz_server->biz_server:更新血脂本地医患关系
+        biz_server->biz_server:更新绑定日志
+    end
+
+    group 血脂本地有账户,绑定了
+        alt 已经绑定兜底医生
+            biz_server->user_center:解绑老关系,并重新绑定医患关系
+            biz_server->biz_server:更新血脂本地医患关系
+            biz_server->biz_server:更新绑定日志
+        end
+    end
+end
+
+group 患者手机号登录
+    user->user_center: 注册,登录
+    user_center-->biz_server: 登录成功消息
+end
+
+group 患者在个人中心绑定微信
+    user->user_center: 绑定微信
+    user_center->user_center:判断是否需要合并
+    alt 需要合并
+        user_center->user_center:合并
+        user_center-->biz_server:合并消息
+    end
+end
+
+group 患者微信登录
+    user->user_center: 注册,登录 by wechat
+    user_center-->biz_server:登录成功消息
+    user->user_center: 绑定手机号
+    user_center->user_center:判断是否需要合并
+        alt 需要合并
+            user_center->user_center: 合并 删除微信登录的用户id,将微信wx赋值到手机的用户
+            user_center-->biz_server:用户合并消息
+        end
+end
+
+group 消费登录成功消息
+    user_center-->biz_server:接受消息
+    group 如果没有用户,创建用户
+        biz_server->biz_server: 创建用户
+    end
+    group 绑定医患关系
+        group 微信登录用户
+            biz_server->user_center:查询绑定信息
+            alt 已经绑定
+                biz_server->biz_server: return
+            else
+                biz_server->biz_server:查询预绑定信息
+                biz_server->biz_server:查询默认医生
+                biz_server->user_center:医患关系绑定
+                biz_server->biz_server: 更新本地医患关系
+                biz_server->biz_server: 绑定日志
+            end
+        end
+
+        group 手机号登录用户
+            biz_server->biz_server: 绑定默认医生
+            biz_server->user_center:医患关系绑定
+            biz_server->biz_server: 绑定日志
+        end
+    end
+end
+
+
+group 消费账号合并消息
+    user_center-->biz_server: 接受消息
+    biz_server->biz_server: 判断是手机合并微信还是微信合并手机
+
+    group 手机合并微信
+        biz_server->user_center: 查询是否已经绑定真实医生,如果存在,返回
+        biz_server->biz_server: 查询prebind记录
+        biz_server->user_center: 用户绑定 or 换绑
+        biz_server->biz_server: 绑定日志
+    end
+
+    group 微信合并手机
+        biz_server->user_center: 用户中心更新绑定关系
+        biz_server->biz_server: 本地更新关系
+        biz_server->biz_server: 绑定日志
+        biz_server->biz_server: 删除微信账号
+    end
+
+end
+
+
+group onboarding兜底
+    user->biz_server: 提交onboarding信息
+    biz_server->user_center: 得到已经绑定的医生id
+    biz_server->user_center: 查询医生信息
+    biz_server->user_center: 查询患者信息
+    alt 患者信息没有unionid
+        biz_server->biz_server: 报警
+    end
+    biz_server->biz_server: 本地DB更新用户 or 本地DB创建用户 (如果没有兜底医生,则会创建本地兜底医生)
+end
+@enduml
