@@ -11,4 +11,5 @@ login_center->user: success 302 with token
 user->biz: with token
 biz->login_center: request userInfo
 biz->biz: init user at biz
+biz->user: login success
 @enduml

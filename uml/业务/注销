@@ -1,0 +1,23 @@
+@startuml
+actor user
+participant phone
+participant biz
+participant uc
+
+user->phone: 申请验证码
+phone->biz: 申请验证码
+biz->uc:申请验证码
+
+phone->user: 收到验证码
+
+user->phone:填写验证码
+phone->biz:验证验证码
+biz->uc: 验证
+
+user->biz:填写表单,开始注销
+biz->uc:验证验证码
+biz->biz:本地落库注销原因
+biz->biz:删除本地数据
+biz->uc:删除用户中心数据
+
+@enduml
